@@ -1,0 +1,70 @@
+@use 'variables' as v;
+
+.ticker-wrap {
+    width: 100%;
+    background: v.$green;
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    &::before {
+        left: 0;
+        background: linear-gradient(to right, v.$green, transparent);
+    }
+
+    &::after {
+        right: 0;
+        background: linear-gradient(to left, v.$green, transparent);
+    }
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: tickerScroll 22s linear infinite;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 28px;
+    font-family: v.$font-display;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #000;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.ticker-star {
+    font-size: 17px;
+    line-height: 1;
+}
+
+@keyframes tickerScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

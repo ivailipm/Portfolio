@@ -1,0 +1,114 @@
+@use 'variables' as v;
+
+.ph-nav-wrap {
+    position: relative;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    padding: 18px 32px 0;
+}
+
+.ph-navbar {
+    display: flex;
+    align-items: center;
+    background: rgba(13, 13, 13, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid v.$glass-border;
+    border-radius: 999px;
+    padding: 9px 14px;
+    width: 100%;
+    max-width: 860px;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.05) inset,
+        0 8px 32px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.ph-logo {
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    color: v.$white;
+    padding: 0 8px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.ph-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ph-nav-link {
+    font-size: 12.5px;
+    font-weight: 400;
+    color: v.$grey2;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color v.$transition-fast, background v.$transition-fast;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    font-family: v.$font-body;
+    border: none;
+    background: transparent;
+    text-decoration: none;
+
+    &:hover {
+        color: v.$white;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    &.active {
+        color: v.$white;
+    }
+}
+
+.ph-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.ph-toggle {
+    width: 34px;
+    height: 19px;
+    background: rgba(0, 255, 136, 0.15);
+    border-radius: 999px;
+    border: 1px solid rgba(0, 255, 136, 0.25);
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: v.$green;
+        box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+        transform: translateX(15px);
+        transition: transform v.$transition-fast;
+    }
+}
+
+// About page nav spacing
+.about-page {
+    padding: 40px 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

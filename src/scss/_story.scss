@@ -1,0 +1,230 @@
+@use 'variables' as v;
+
+.ms-section {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    position: relative;
+    background: #0e0e0e;
+}
+
+.ms-cross {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    line-height: 1;
+    pointer-events: none;
+
+    &-top {
+        top: 10px;
+    }
+
+    &-bottom {
+        bottom: 10px;
+    }
+}
+
+// LEFT PANEL
+.ms-left {
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.ms-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    width: fit-content;
+    text-decoration: none;
+    transition: border-color v.$transition-fast, color v.$transition-fast;
+
+    &:hover {
+        border-color: rgba(0, 255, 136, 0.3);
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.ms-tag-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: v.$green;
+        box-shadow: 0 0 6px rgba(0, 255, 136, 0.8);
+    }
+}
+
+.ms-inst-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.ms-inst-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+
+    &:hover .ms-inst-icon {
+        border-color: rgba(0, 255, 136, 0.3);
+        background: rgba(0, 255, 136, 0.05);
+    }
+}
+
+.ms-inst-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: border-color v.$transition-fast, background v.$transition-fast;
+}
+
+.ms-inst-name {
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 15px;
+    color: v.$white;
+    margin-bottom: 4px;
+}
+
+.ms-inst-year {
+    font-size: 12px;
+    color: #555;
+    font-weight: 300;
+}
+
+// RIGHT PANEL
+.ms-right {
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.ms-headline {
+    font-family: v.$font-display;
+    font-weight: 800;
+    font-size: clamp(22px, 2.8vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -1px;
+
+    span {
+        color: rgba(255, 255, 255, 0.25);
+        font-weight: 700;
+    }
+}
+
+// TABS
+.ms-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.ms-tab {
+    flex: 1;
+    padding: 9px 12px;
+    border-radius: 7px;
+    font-family: v.$font-display;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    transition: background v.$transition-fast, color v.$transition-fast;
+
+    &.active {
+        background: v.$green;
+        color: #000;
+    }
+}
+
+// ITEMS
+.ms-items {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.ms-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.ms-item-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: v.$green;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.ms-item-title {
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: v.$white;
+}
+
+.ms-item-desc {
+    font-size: 13px;
+    color: v.$grey;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.ms-item-note {
+    margin-top: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 11.5px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

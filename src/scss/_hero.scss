@@ -1,0 +1,339 @@
+@use 'variables' as v;
+
+// EFFECTS
+.ph-grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+    animation: grainMove 0.5s steps(2) infinite;
+}
+
+@keyframes grainMove {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-3px, -4px);
+    }
+
+    50% {
+        transform: translate(4px, 2px);
+    }
+
+    75% {
+        transform: translate(-2px, 5px);
+    }
+
+    100% {
+        transform: translate(3px, -3px);
+    }
+}
+
+.ph-scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 199;
+    background: repeating-linear-gradient(to bottom,
+            transparent, transparent 2px,
+            rgba(0, 0, 0, 0.07) 2px, rgba(0, 0, 0, 0.07) 4px);
+}
+
+.ph-static {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 198;
+    background: rgba(255, 255, 255, 0.04);
+    animation: flicker 8s steps(1) infinite;
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    4% {
+        opacity: 1;
+    }
+
+    4.1% {
+        opacity: 0;
+    }
+
+    7% {
+        opacity: 0.5;
+    }
+
+    7.2% {
+        opacity: 0;
+    }
+
+    91% {
+        opacity: 0;
+    }
+
+    91.05% {
+        opacity: 0.8;
+    }
+
+    91.1% {
+        opacity: 0;
+    }
+}
+
+// HERO
+.ph-hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 55% 70% at 82% 50%, rgba(0, 255, 136, 0.045) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 50% at 15% 85%, rgba(0, 60, 30, 0.1) 0%, transparent 55%),
+        v.$black;
+    height: 100vh;
+    overflow: hidden; // ← this hides anything inside it
+}
+
+// CONTENT
+.ph-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    position: relative;
+}
+
+.ph-left {
+    flex: 1;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    position: relative;
+    z-index: 10;
+}
+
+// HEADLINE
+.ph-headline {
+    font-family: v.$font-display;
+    font-weight: 900;
+    font-size: clamp(48px, 4.5vw, 62px);
+    line-height: 1.04;
+    letter-spacing: -2.5px;
+    color: v.$white;
+    animation: phFadeUp 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ph-dim {
+    color: rgba(255, 255, 255, 0.25);
+    display: block;
+}
+
+.ph-dim2 {
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+    display: block;
+}
+
+// CV + SOCIAL ROW
+.ph-cv-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: phFadeUp 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ph-cv-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid rgba(0, 255, 136, 0.45);
+    background: transparent;
+    color: v.$green;
+    font-family: v.$font-display;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: background v.$transition-fast, border-color v.$transition-fast, box-shadow v.$transition-fast;
+
+    &:hover {
+        background: rgba(0, 255, 136, 0.08);
+        border-color: v.$green;
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+}
+
+.ph-social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 255, 136, 0.25);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgba(0, 255, 136, 0.65);
+    transition: border-color v.$transition-fast, background v.$transition-fast, box-shadow v.$transition-fast;
+
+    svg {
+        width: 15px;
+        height: 15px;
+        fill: currentColor;
+    }
+
+    &:hover {
+        border-color: v.$green;
+        background: rgba(0, 255, 136, 0.08);
+        box-shadow: 0 0 16px rgba(0, 255, 136, 0.2);
+        color: v.$green;
+    }
+}
+
+// SPHERE (React mounts here)
+.ph-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    animation: phSphereFade 1.2s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes phSphereFade {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ph-sphere-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+// FLOATING CARD
+.ph-float-card {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 150;
+    background: rgba(14, 14, 14, 0.78);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px 20px;
+    min-width: 205px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    animation: phCardSlide 0.9s 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes phCardSlide {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ph-card-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: v.$green;
+    box-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    animation: phDotPulse 2s ease-in-out infinite;
+}
+
+.ph-card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.ph-card-av {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a3a2a, #0a2a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.ph-card-title {
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 13px;
+    color: v.$white;
+    letter-spacing: -0.3px;
+}
+
+.ph-card-sub {
+    font-size: 11.5px;
+    color: v.$grey;
+    font-weight: 300;
+    padding-left: 34px;
+}
+
+// ANIMATIONS
+@keyframes phFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes phDotPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+    }
+}
