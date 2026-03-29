@@ -18,8 +18,9 @@
   <div class="ph-scanlines"></div>
   <div class="ph-static"></div>
 
-  <!-- HERO -->
-  <section class="ph-hero">
+  <!-- HERO — dither background injected here automatically -->
+  <section class="ph-hero" data-dither data-wave-speed="0.02" data-wave-frequency="9" data-wave-amplitude="0.3"
+    data-color-num="40" data-pixel-size="2" data-mouse-radius="0.3">
 
     <!-- NAVBAR -->
     <div class="ph-nav-wrap">
@@ -60,15 +61,15 @@
               </svg>
             </button>
           </a>
-          <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">
+          <!-- <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">
             <button class="ph-social-btn">
               <svg viewBox="0 0 24 24">
                 <path
                   d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.733-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </button>
-          </a>
-          <a href="https://dribbble.com/yourhandle" target="_blank" rel="noopener noreferrer">
+          </a> -->
+          <a href="https://dribbble.com/ivailapernikova" target="_blank" rel="noopener noreferrer">
             <button class="ph-social-btn">
               <svg viewBox="0 0 24 24">
                 <path
@@ -76,7 +77,7 @@
               </svg>
             </button>
           </a>
-          <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/ivayla-pernikova-baa57624a/" target="_blank" rel="noopener noreferrer">
             <button class="ph-social-btn">
               <svg viewBox="0 0 24 24">
                 <path
@@ -84,7 +85,7 @@
               </svg>
             </button>
           </a>
-          <a href="https://github.com/yourhandle" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/ivailipm" target="_blank" rel="noopener noreferrer">
             <button class="ph-social-btn">
               <svg viewBox="0 0 24 24">
                 <path
@@ -95,19 +96,45 @@
         </div>
       </div>
 
-      <!-- RIGHT: sphere mounts here via React -->
-      <div class="ph-right" id="sphere-root"></div>
+      <!-- Sphere
+      <canvas class="ph-sphere-canvas"></canvas> -->
+
     </div>
 
   </section>
 
-  <!-- MARQUEE: mounts here via React -->
-  <div id="marquee-root"></div>
+  <!-- MARQUEE -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-star">✳</span>MOTION</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>TYPOGRAPHY</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>SYSTEMS</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>IDENTITY</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>BRANDING</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>INTERACTION</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>MOTION</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>TYPOGRAPHY</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>SYSTEMS</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>IDENTITY</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>BRANDING</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>INTERACTION</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>MOTION</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>TYPOGRAPHY</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>SYSTEMS</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>IDENTITY</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>BRANDING</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>INTERACTION</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>MOTION</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>TYPOGRAPHY</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>SYSTEMS</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>IDENTITY</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>BRANDING</div>
+      <div class="ticker-item"><span class="ticker-star">✳</span>INTERACTION</div>
+    </div>
+  </div>
 
   <!-- ABOUT SECTION -->
   <section class="about-section">
-
-    <!-- LEFT -->
     <div class="about-left">
       <div class="about-tag">
         <div class="about-tag-dot"></div>
@@ -119,27 +146,26 @@
         </div>
       </div>
     </div>
-
-    <!-- RIGHT -->
     <div class="about-right">
       <h2 class="about-headline">
-        I'm Ivayla, a designer blending visual clarity with
-        <span>thoughtful interaction to create digital experiences that feel effortless.</span>
+        I’m Ivayla, a full-stack developer focused on building digital systems
+        <span>with a sharp eye for layout, interaction, and user experience.</span>
       </h2>
       <p class="about-body">
-        I build visual identities, interfaces, and portfolio systems that balance aesthetics with clarity.
+        I create end-to-end solutions—from architecture to interface—that are both functional and thoughtfully designed.
       </p>
       <div class="about-quote">
-        Every project I take on starts with clarity and intention. Whether it's a product interface, a brand refresh, or
-        a
-        full digital build, I focus on thoughtful structure, meaningful visuals, and experiences that simply feel right.
+        Every project begins with a clear foundation. From backend architecture to frontend experience, I design and
+        build
+        full-stack systems with structure, performance, and usability in mind—ensuring every interaction feels
+        considered and
+        cohesive.
       </div>
       <div class="about-btns">
         <a href="/contact.html"><button class="btn-contact">Contact Me</button></a>
         <a href="/projects.html"><button class="btn-projects">View Projects</button></a>
       </div>
     </div>
-
   </section>
 
   <!-- FLOATING CARD -->

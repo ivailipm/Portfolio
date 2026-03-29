@@ -1,0 +1,123 @@
+@use 'variables' as v;
+
+.tagline-section {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tagline-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: v.$primary-dark;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    &::before {
+        content: '';
+        width: 20px;
+        height: 1px;
+        background: v.$primary-dark;
+    }
+}
+
+.tagline-text {
+    font-family: v.$font-display;
+    font-weight: 800;
+    font-size: clamp(32px, 4.5vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    color: v.$white;
+
+    em {
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.25);
+    }
+}
+
+.tagline-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 8px;
+}
+
+.tagline-desc {
+    font-size: 13.5px;
+    color: v.$grey;
+    font-weight: 300;
+    line-height: 1.85;
+    border-left: 2px solid rgba(151, 21, 49, 0.35);
+    padding-left: 18px;
+}
+
+.tagline-avail {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    width: fit-content;
+}
+
+.avail-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: v.$primary-dark;
+}
+
+.tagline-cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: v.$primary-dark;
+    color: #fff;
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(151, 21, 49, 0.25);
+    transition: transform v.$transition-fast, box-shadow v.$transition-fast;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 0 36px rgba(151, 21, 49, 0.4);
+    }
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: v.$white;
+    font-family: v.$font-display;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background v.$transition-fast;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.06);
+    }
+}

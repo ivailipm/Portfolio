@@ -64,7 +64,7 @@
 
     &:hover {
         color: v.$white;
-        background: rgba(255, 255, 255, 0.05);
+        background: v.$glass;
     }
 
     &.active {
@@ -82,9 +82,9 @@
 .ph-toggle {
     width: 34px;
     height: 19px;
-    background: rgba(0, 255, 136, 0.15);
+    background: rgba(151, 21, 49, 0.15);
     border-radius: 999px;
-    border: 1px solid rgba(0, 255, 136, 0.25);
+    border: 1px solid rgba(151, 21, 49, 0.3);
     position: relative;
     cursor: pointer;
     flex-shrink: 0;
@@ -97,14 +97,13 @@
         width: 13px;
         height: 13px;
         border-radius: 50%;
-        background: v.$green;
-        box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+        background: v.$primary-dark;
+        box-shadow: 0 0 8px rgba(151, 21, 49, 0.6);
         transform: translateX(15px);
         transition: transform v.$transition-fast;
     }
 }
 
-// About page nav spacing
 .about-page {
     padding: 40px 80px;
     min-height: 100vh;

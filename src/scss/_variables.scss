@@ -1,5 +1,8 @@
-// Colors
-$green: #00ff88;
+// ─── Primary colors ───────────────────────────────────────────────────────────
+$primary-light: #c72336; // light mode primary
+$primary-dark: #971531; // dark mode primary
+
+// ─── Base palette ─────────────────────────────────────────────────────────────
 $black: #0a0a0a;
 $white: #efefef;
 $grey: #666;
@@ -7,10 +10,10 @@ $grey2: #999;
 $glass: rgba(255, 255, 255, 0.04);
 $glass-border: rgba(255, 255, 255, 0.09);
 
-// Typography
+// ─── Typography ───────────────────────────────────────────────────────────────
 $font-display: 'Syne', sans-serif;
 $font-body: 'DM Sans', sans-serif;
 
-// Transitions
+// ─── Transitions ──────────────────────────────────────────────────────────────
 $transition-fast: 0.2s ease;
 $transition-medium: 0.4s cubic-bezier(0.16, 1, 0.3, 1);

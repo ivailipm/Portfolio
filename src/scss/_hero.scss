@@ -1,6 +1,5 @@
 @use 'variables' as v;
 
-// EFFECTS
 .ph-grain {
     position: fixed;
     inset: 0;
@@ -89,7 +88,6 @@
     }
 }
 
-// HERO
 .ph-hero {
     position: relative;
     width: 100vw;
@@ -98,14 +96,11 @@
     flex-direction: column;
     overflow: hidden;
     background:
-        radial-gradient(ellipse 55% 70% at 82% 50%, rgba(0, 255, 136, 0.045) 0%, transparent 65%),
-        radial-gradient(ellipse 35% 50% at 15% 85%, rgba(0, 60, 30, 0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 70% at 82% 50%, rgba(151, 21, 49, 0.06) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 50% at 15% 85%, rgba(80, 10, 25, 0.1) 0%, transparent 55%),
         v.$black;
-    height: 100vh;
-    overflow: hidden; // ← this hides anything inside it
 }
 
-// CONTENT
 .ph-content {
     flex: 1;
     display: flex;
@@ -124,7 +119,6 @@
     z-index: 10;
 }
 
-// HEADLINE
 .ph-headline {
     font-family: v.$font-display;
     font-weight: 900;
@@ -141,12 +135,11 @@
 }
 
 .ph-dim2 {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.20);
     font-weight: 700;
     display: block;
 }
 
-// CV + SOCIAL ROW
 .ph-cv-row {
     display: flex;
     align-items: center;
@@ -158,9 +151,9 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    border: 1.5px solid rgba(0, 255, 136, 0.45);
+    border: 1.5px solid rgba(151, 21, 49, 0.45);
     background: transparent;
-    color: v.$green;
+    color: v.$primary-dark;
     font-family: v.$font-display;
     font-weight: 600;
     font-size: 13px;
@@ -172,9 +165,9 @@
     transition: background v.$transition-fast, border-color v.$transition-fast, box-shadow v.$transition-fast;
 
     &:hover {
-        background: rgba(0, 255, 136, 0.08);
-        border-color: v.$green;
-        box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        background: rgba(151, 21, 49, 0.08);
+        border-color: v.$primary-dark;
+        box-shadow: 0 0 20px rgba(151, 21, 49, 0.25);
     }
 }
 
@@ -182,14 +175,15 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1.5px solid rgba(0, 255, 136, 0.25);
+    border: 1.5px solid rgba(151, 21, 49, 0.3);
     background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: rgba(0, 255, 136, 0.65);
-    transition: border-color v.$transition-fast, background v.$transition-fast, box-shadow v.$transition-fast;
+    color: v.$primary-dark;
+    opacity: 0.75;
+    transition: border-color v.$transition-fast, background v.$transition-fast, box-shadow v.$transition-fast, opacity v.$transition-fast;
 
     svg {
         width: 15px;
@@ -198,45 +192,22 @@
     }
 
     &:hover {
-        border-color: v.$green;
-        background: rgba(0, 255, 136, 0.08);
-        box-shadow: 0 0 16px rgba(0, 255, 136, 0.2);
-        color: v.$green;
-    }
-}
-
-// SPHERE (React mounts here)
-.ph-right {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 55%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    animation: phSphereFade 1.2s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes phSphereFade {
-    from {
-        opacity: 0;
-        transform: scale(0.92);
-    }
-
-    to {
+        border-color: v.$primary-dark;
+        background: rgba(151, 21, 49, 0.08);
+        box-shadow: 0 0 16px rgba(151, 21, 49, 0.25);
         opacity: 1;
-        transform: scale(1);
     }
 }
 
 .ph-sphere-canvas {
-    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
     height: 100%;
+    pointer-events: none;
 }
 
-// FLOATING CARD
 .ph-float-card {
     position: fixed;
     bottom: 28px;
@@ -269,8 +240,8 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: v.$green;
-    box-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
+    background: v.$primary-dark;
+    box-shadow: 0 0 8px rgba(151, 21, 49, 0.7);
     position: absolute;
     top: 14px;
     right: 16px;
@@ -288,12 +259,12 @@
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #1a3a2a, #0a2a1a);
+    background: linear-gradient(135deg, rgba(151, 21, 49, 0.3), rgba(80, 10, 25, 0.2));
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 11px;
-    border: 1px solid rgba(0, 255, 136, 0.2);
+    border: 1px solid rgba(151, 21, 49, 0.25);
 }
 
 .ph-card-title {
@@ -311,7 +282,6 @@
     padding-left: 34px;
 }
 
-// ANIMATIONS
 @keyframes phFadeUp {
     from {
         opacity: 0;
@@ -329,11 +299,11 @@
     0%,
     100% {
         opacity: 1;
-        box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+        box-shadow: 0 0 10px rgba(151, 21, 49, 0.7);
     }
 
     50% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+        box-shadow: 0 0 20px rgba(151, 21, 49, 0.3);
     }
 }

@@ -57,7 +57,7 @@
     transition: border-color v.$transition-fast, color v.$transition-fast;
 
     &:hover {
-        border-color: rgba(0, 255, 136, 0.3);
+        border-color: rgba(151, 21, 49, 0.3);
         color: rgba(255, 255, 255, 0.7);
     }
 }
@@ -66,7 +66,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 255, 136, 0.4);
+    border: 1px solid rgba(151, 21, 49, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,8 +76,7 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: v.$green;
-        box-shadow: 0 0 6px rgba(0, 255, 136, 0.8);
+        background: v.$primary-dark;
     }
 }
 
@@ -94,8 +93,8 @@
     cursor: pointer;
 
     &:hover .ms-inst-icon {
-        border-color: rgba(0, 255, 136, 0.3);
-        background: rgba(0, 255, 136, 0.05);
+        border-color: rgba(151, 21, 49, 0.3);
+        background: rgba(151, 21, 49, 0.05);
     }
 }
 
@@ -123,7 +122,7 @@
 
 .ms-inst-year {
     font-size: 12px;
-    color: #555;
+    color: v.$grey;
     font-weight: 300;
 }
 
@@ -174,8 +173,8 @@
     transition: background v.$transition-fast, color v.$transition-fast;
 
     &.active {
-        background: v.$green;
-        color: #000;
+        background: v.$primary-dark;
+        color: #fff;
     }
 }
 
@@ -196,8 +195,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: v.$green;
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+    background: v.$primary-dark;
     flex-shrink: 0;
     margin-top: 5px;
 }
@@ -223,7 +221,7 @@
     border-radius: 6px;
     padding: 7px 12px;
     font-size: 11.5px;
-    color: #555;
+    color: v.$grey;
     display: flex;
     align-items: center;
     gap: 6px;

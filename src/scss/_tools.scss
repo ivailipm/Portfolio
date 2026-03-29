@@ -26,7 +26,7 @@
 }
 
 .tools-tag-icon {
-    color: v.$green;
+    color: v.$primary-dark;
     font-size: 14px;
 }
 
@@ -67,11 +67,11 @@
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 12px;
     padding: 16px 18px;
-    transition: border-color .2s, background .2s;
+    transition: border-color v.$transition-fast, background v.$transition-fast;
 
     &:hover {
-        border-color: rgba(0, 255, 136, 0.2);
-        background: rgba(0, 255, 136, 0.02);
+        border-color: rgba(151, 21, 49, 0.3);
+        background: rgba(151, 21, 49, 0.03);
     }
 }
 
@@ -98,6 +98,6 @@
 
 .tool-desc {
     font-size: 11.5px;
-    color: #555;
+    color: v.$grey;
     font-weight: 300;
 }

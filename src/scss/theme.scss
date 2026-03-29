@@ -1,0 +1,674 @@
+// ─── CSS custom properties ────────────────────────────────────────────────────
+// Dark mode (default)
+:root {
+    --primary: #971531;
+    --primary-glow: rgba(151, 21, 49, 0.3);
+    --primary-subtle: rgba(151, 21, 49, 0.08);
+    --primary-border: rgba(151, 21, 49, 0.35);
+
+    --bg: #0a0a0a;
+    --bg-secondary: #0e0e0e;
+    --bg-card: #111;
+    --surface: rgba(255, 255, 255, 0.03);
+    --surface-hover: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.07);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #efefef;
+    --text-secondary: #999;
+    --text-muted: #555;
+    --text-dim: rgba(255, 255, 255, 0.25);
+    --text-dim2: rgba(255, 255, 255, 0.28);
+
+    --navbar-bg: rgba(13, 13, 13, 0.80);
+    --float-card-bg: rgba(14, 14, 14, 0.85);
+    --float-card-border: rgba(255, 255, 255, 0.08);
+
+    --grain-opacity: 0.032;
+    --scanline-opacity: 1;
+    --hero-glow-1: rgba(151, 21, 49, 0.06);
+    --hero-glow-2: rgba(80, 10, 25, 0.1);
+}
+
+// Light mode
+[data-theme="light"] {
+    --primary: #c72336;
+    --primary-glow: rgba(199, 35, 54, 0.2);
+    --primary-subtle: rgba(199, 35, 54, 0.06);
+    --primary-border: rgba(199, 35, 54, 0.3);
+
+    --bg: #f0ede8;
+    --bg-secondary: #e8e4de;
+    --bg-card: #eae6e1;
+    --surface: rgba(0, 0, 0, 0.03);
+    --surface-hover: rgba(0, 0, 0, 0.06);
+    --border: rgba(0, 0, 0, 0.08);
+    --border-subtle: rgba(0, 0, 0, 0.05);
+
+    --text-primary: #111;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --text-dim: rgba(0, 0, 0, 0.25);
+    --text-dim2: rgba(0, 0, 0, 0.3);
+
+    --navbar-bg: rgba(240, 237, 232, 0.85);
+    --float-card-bg: rgba(228, 224, 218, 0.92);
+    --float-card-border: rgba(0, 0, 0, 0.08);
+
+    --grain-opacity: 0.018;
+    --scanline-opacity: 0;
+    --hero-glow-1: rgba(199, 35, 54, 0.05);
+    --hero-glow-2: rgba(150, 20, 40, 0.05);
+}
+
+// ─── Global ───────────────────────────────────────────────────────────────────
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+// ─── Effects ──────────────────────────────────────────────────────────────────
+.ph-grain {
+    opacity: var(--grain-opacity) !important;
+}
+
+.ph-scanlines {
+    opacity: var(--scanline-opacity) !important;
+}
+
+// ─── Navbar ───────────────────────────────────────────────────────────────────
+.ph-navbar {
+    background: var(--navbar-bg) !important;
+    border-color: var(--border) !important;
+    transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.ph-logo {
+    color: var(--text-primary) !important;
+}
+
+.ph-nav-link {
+    color: var(--text-secondary) !important;
+
+    &:hover {
+        color: var(--text-primary) !important;
+        background: var(--surface) !important;
+    }
+
+    &.active {
+        color: var(--text-primary) !important;
+    }
+}
+
+// Toggle: right = dark, left = light
+.ph-toggle {
+    background: var(--primary-subtle) !important;
+    border-color: var(--primary-border) !important;
+    transition: background 0.3s ease, border-color 0.3s ease;
+
+    &::after {
+        background: var(--primary) !important;
+        box-shadow: 0 0 8px var(--primary-glow) !important;
+        transition: transform 0.25s ease, background 0.3s ease;
+    }
+}
+
+[data-theme="light"] .ph-toggle::after {
+    transform: translateX(0px) !important;
+}
+
+// ─── Hero ─────────────────────────────────────────────────────────────────────
+.ph-hero {
+    background:
+        radial-gradient(ellipse 55% 70% at 82% 50%, var(--hero-glow-1) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 50% at 15% 85%, var(--hero-glow-2) 0%, transparent 55%),
+        var(--bg) !important;
+    transition: background 0.35s ease;
+}
+
+.ph-headline {
+    color: var(--text-primary);
+}
+
+.ph-dim {
+    color: var(--text-dim) !important;
+}
+
+.ph-cv-btn {
+    color: var(--primary) !important;
+    border-color: var(--primary-border) !important;
+
+    &:hover {
+        background: var(--primary-subtle) !important;
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 20px var(--primary-glow) !important;
+    }
+}
+
+.ph-social-btn {
+    color: var(--primary) !important;
+    border-color: var(--primary-border) !important;
+    opacity: 0.75;
+
+    &:hover {
+        border-color: var(--primary) !important;
+        background: var(--primary-subtle) !important;
+        box-shadow: 0 0 16px var(--primary-glow) !important;
+        opacity: 1;
+    }
+}
+
+.ph-float-card {
+    background: var(--float-card-bg) !important;
+    border-color: var(--float-card-border) !important;
+}
+
+.ph-card-dot {
+    background: var(--primary) !important;
+    box-shadow: 0 0 8px var(--primary-glow) !important;
+}
+
+.ph-card-av {
+    background: linear-gradient(135deg, rgba(151, 21, 49, 0.3), rgba(80, 10, 25, 0.2)) !important;
+    border-color: var(--primary-border) !important;
+}
+
+.ph-card-title {
+    color: var(--text-primary) !important;
+}
+
+.ph-card-sub {
+    color: var(--text-muted) !important;
+}
+
+@keyframes phDotPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px var(--primary-subtle);
+    }
+}
+
+// ─── Marquee / Ticker ─────────────────────────────────────────────────────────
+.ticker-wrap {
+    background: var(--primary) !important;
+
+    &::before {
+        background: linear-gradient(to right, var(--primary), transparent) !important;
+    }
+
+    &::after {
+        background: linear-gradient(to left, var(--primary), transparent) !important;
+    }
+}
+
+.ticker-item {
+    color: #fff !important;
+}
+
+.ticker-star {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+// ─── About section (index.html) ───────────────────────────────────────────────
+.about-tag {
+    color: var(--text-secondary);
+    border-color: var(--border);
+    transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+.about-tag-dot {
+    border-color: var(--primary-border) !important;
+
+    &::after {
+        background: var(--primary) !important;
+        box-shadow: none !important;
+    }
+}
+
+.about-img {
+    background: var(--surface);
+    border-color: var(--border);
+    transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.about-img-wrap {
+    &::before {
+        border-color: var(--primary-border) !important;
+    }
+
+    &::after {
+        border-color: var(--primary-border) !important;
+    }
+}
+
+.about-headline {
+    color: var(--text-primary);
+
+    span {
+        color: var(--text-dim2);
+    }
+}
+
+.about-body {
+    color: var(--text-muted);
+}
+
+.about-quote {
+    border-left-color: var(--primary-border) !important;
+    background: var(--primary-subtle) !important;
+    color: var(--text-secondary) !important;
+}
+
+.btn-contact {
+    background: var(--primary) !important;
+    color: #fff !important;
+    box-shadow: 0 0 24px var(--primary-glow) !important;
+
+    &:hover {
+        box-shadow: 0 0 40px var(--primary-glow) !important;
+    }
+}
+
+.btn-projects {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text-primary) !important;
+
+    &:hover {
+        background: var(--surface-hover) !important;
+    }
+}
+
+// ─── Tagline section ──────────────────────────────────────────────────────────
+.tagline-section {
+    border-bottom-color: var(--border) !important;
+}
+
+.tagline-label {
+    color: var(--primary) !important;
+
+    &::before {
+        background: var(--primary) !important;
+    }
+}
+
+.tagline-text {
+    color: var(--text-primary) !important;
+
+    em {
+        color: var(--text-dim) !important;
+    }
+}
+
+.tagline-desc {
+    color: var(--text-muted) !important;
+    border-left-color: var(--primary-border) !important;
+}
+
+.tagline-avail {
+    color: var(--text-secondary) !important;
+    border-color: var(--border) !important;
+}
+
+.avail-dot {
+    background: var(--primary) !important;
+}
+
+.btn-primary {
+    background: var(--primary) !important;
+    color: #fff !important;
+    box-shadow: 0 0 20px var(--primary-glow) !important;
+
+    &:hover {
+        box-shadow: 0 0 36px var(--primary-glow) !important;
+    }
+}
+
+.btn-secondary {
+    color: var(--text-primary) !important;
+    border-color: var(--border) !important;
+
+    &:hover {
+        background: var(--surface) !important;
+    }
+}
+
+// ─── Profile card ─────────────────────────────────────────────────────────────
+.profile-card {
+    background: var(--bg-card) !important;
+    border-color: var(--border) !important;
+}
+
+.card-photo {
+    background: var(--surface) !important;
+    border-color: var(--border-subtle) !important;
+}
+
+.card-email {
+    color: var(--text-primary) !important;
+}
+
+.card-location {
+    color: var(--text-muted) !important;
+}
+
+.card-divider {
+    border-top-color: var(--border-subtle) !important;
+}
+
+.card-section-label {
+    color: var(--text-muted) !important;
+}
+
+.lang-name {
+    color: var(--text-primary) !important;
+}
+
+.lang-level {
+    color: var(--text-muted) !important;
+}
+
+.lang-bar-wrap {
+    background: var(--surface) !important;
+}
+
+.lang-bar {
+    background: var(--primary) !important;
+    box-shadow: none !important;
+}
+
+.skill-tag {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+
+    &:hover {
+        border-color: var(--primary-border) !important;
+        color: var(--primary) !important;
+    }
+}
+
+.social-icon {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+
+    &:hover {
+        border-color: var(--primary-border) !important;
+        color: var(--primary) !important;
+        background: var(--primary-subtle) !important;
+    }
+}
+
+// ─── My Story section ─────────────────────────────────────────────────────────
+.ms-section {
+    background: var(--bg-card) !important;
+    border-color: var(--border) !important;
+}
+
+.ms-tag {
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+}
+
+.ms-tag-dot {
+    border-color: var(--primary-border) !important;
+
+    &::after {
+        background: var(--primary) !important;
+        box-shadow: none !important;
+    }
+}
+
+.ms-cross {
+    color: var(--border) !important;
+}
+
+.ms-inst-icon {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+}
+
+.ms-inst-name {
+    color: var(--text-primary) !important;
+}
+
+.ms-inst-year {
+    color: var(--text-muted) !important;
+}
+
+.ms-headline {
+    color: var(--text-primary) !important;
+
+    span {
+        color: var(--text-dim2) !important;
+    }
+}
+
+.ms-tab {
+    color: var(--text-secondary) !important;
+    border-color: var(--border) !important;
+    background: transparent !important;
+
+    &:hover {
+        color: var(--text-primary) !important;
+    }
+
+    &.active {
+        background: var(--primary) !important;
+        color: #fff !important;
+        border-color: var(--primary) !important;
+    }
+}
+
+.ms-item-dot {
+    background: var(--primary) !important;
+}
+
+.ms-item-title {
+    color: var(--text-primary) !important;
+}
+
+.ms-item-desc {
+    color: var(--text-muted) !important;
+}
+
+.ms-item-note {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+}
+
+// ─── Tools section ────────────────────────────────────────────────────────────
+.tools-section {
+    background: var(--bg-secondary) !important;
+    border-color: var(--border) !important;
+}
+
+.tools-tag {
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+}
+
+.tools-tag-icon {
+    color: var(--primary) !important;
+}
+
+.tools-headline {
+    color: var(--text-primary) !important;
+
+    span {
+        color: var(--text-dim2) !important;
+    }
+}
+
+.tools-desc {
+    color: var(--text-muted) !important;
+}
+
+.tool-card {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+
+    &:hover {
+        border-color: var(--primary-border) !important;
+        background: var(--primary-subtle) !important;
+    }
+}
+
+.tool-icon {
+    background: var(--surface-hover) !important;
+    border-color: var(--border) !important;
+}
+
+.tool-name {
+    color: var(--text-primary) !important;
+}
+
+.tool-desc {
+    color: var(--text-muted) !important;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+    .ph-content {
+        padding: 0 24px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    .ph-left {
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .ph-headline {
+        font-size: clamp(36px, 10vw, 52px);
+        letter-spacing: -1.5px;
+    }
+
+    .ph-cv-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .ph-sphere-canvas {
+        width: 280px;
+        height: 280px;
+    }
+
+    .ph-float-card {
+        bottom: 16px;
+        right: 16px;
+        min-width: 170px;
+        padding: 12px 16px;
+    }
+
+    .ph-nav-wrap {
+        padding: 12px 16px 0;
+    }
+
+    .ph-navbar {
+        padding: 8px 12px;
+        max-width: 100%;
+    }
+
+    .ph-nav-link {
+        font-size: 11.5px;
+        padding: 5px 8px;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+        padding: 48px 24px;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .about-left {
+        align-items: center;
+    }
+
+    .about-tag {
+        margin: 0 auto;
+    }
+
+    .about-img-wrap {
+        margin: 0 auto;
+    }
+
+    .about-btns {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tagline-section {
+        grid-template-columns: 1fr;
+        padding: 48px 24px;
+        gap: 32px;
+    }
+
+    .about-page-layout {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .profile-card {
+        position: static;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ms-section {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .ph-headline {
+        font-size: clamp(30px, 9vw, 42px);
+    }
+
+    .ph-logo {
+        font-size: 13px;
+    }
+
+    .ph-nav-link {
+        font-size: 11px;
+        padding: 4px 7px;
+    }
+
+    .about-section {
+        padding: 36px 16px;
+    }
+
+    .about-img {
+        width: 220px;
+        height: 260px;
+    }
+
+    .about-img-wrap {
+        width: 220px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tools-section {
+        padding: 28px 20px;
+    }
+}

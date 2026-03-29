@@ -1,0 +1,182 @@
+@use 'variables' as v;
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.about-page-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 80px;
+    align-items: start;
+}
+
+.about-main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.profile-card {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.card-photo {
+    position: relative;
+    margin: 14px 14px 0 14px;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 280px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.card-info {
+    padding: 16px 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-email {
+    font-size: 13.5px;
+    color: v.$white;
+    font-weight: 500;
+}
+
+.card-location {
+    font-size: 11.5px;
+    color: v.$grey;
+    font-weight: 300;
+}
+
+.card-socials {
+    display: flex;
+    gap: 8px;
+    padding: 18px 0;
+    margin-bottom: 14px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: v.$grey2;
+    transition: border-color v.$transition-fast, color v.$transition-fast, background v.$transition-fast;
+
+    svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    &:hover {
+        border-color: rgba(151, 21, 49, 0.4);
+        color: v.$primary-dark;
+        background: rgba(151, 21, 49, 0.06);
+    }
+}
+
+.card-divider {
+    margin: 14px 18px 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card-section {
+    padding: 14px 18px 0;
+}
+
+.card-bottom {
+    padding-bottom: 18px;
+}
+
+.card-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.lang-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lang-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.lang-name {
+    font-size: 12.5px;
+    color: v.$white;
+    font-weight: 400;
+    flex: 1;
+}
+
+.lang-level {
+    font-size: 11px;
+    color: v.$grey;
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.lang-bar-wrap {
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.lang-bar {
+    height: 100%;
+    background: v.$primary-dark;
+    border-radius: 999px;
+}
+
+.skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+    padding: 4px 11px;
+    font-size: 11px;
+    color: v.$grey2;
+    font-weight: 400;
+    transition: border-color v.$transition-fast, color v.$transition-fast;
+
+    &:hover {
+        border-color: rgba(151, 21, 49, 0.35);
+        color: v.$primary-dark;
+    }
+}

@@ -36,7 +36,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 255, 136, 0.4);
+    border: 1px solid rgba(151, 21, 49, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,8 +46,7 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: v.$green;
-        box-shadow: 0 0 6px rgba(0, 255, 136, 0.8);
+        background: v.$primary-dark;
     }
 }
 
@@ -62,8 +61,8 @@
         right: -10px;
         width: 60px;
         height: 60px;
-        border-right: 1px solid rgba(0, 255, 136, 0.3);
-        border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+        border-right: 1px solid rgba(151, 21, 49, 0.3);
+        border-bottom: 1px solid rgba(151, 21, 49, 0.3);
         border-radius: 0 0 8px 0;
     }
 
@@ -74,8 +73,8 @@
         left: -10px;
         width: 60px;
         height: 60px;
-        border-left: 1px solid rgba(0, 255, 136, 0.3);
-        border-top: 1px solid rgba(0, 255, 136, 0.3);
+        border-left: 1px solid rgba(151, 21, 49, 0.3);
+        border-top: 1px solid rgba(151, 21, 49, 0.3);
         border-radius: 8px 0 0 0;
     }
 }
@@ -122,14 +121,14 @@
 }
 
 .about-quote {
-    border-left: 2px solid rgba(0, 255, 136, 0.4);
+    border-left: 2px solid rgba(151, 21, 49, 0.4);
     padding: 12px 20px;
     font-size: 13.5px;
-    color: #888;
+    color: v.$grey2;
     font-weight: 300;
     line-height: 1.7;
     font-style: italic;
-    background: rgba(0, 255, 136, 0.02);
+    background: rgba(151, 21, 49, 0.03);
     border-radius: 0 8px 8px 0;
 }
 
@@ -140,8 +139,8 @@
 }
 
 .btn-contact {
-    background: v.$green;
-    color: #000;
+    background: v.$primary-dark;
+    color: #fff;
     font-family: v.$font-display;
     font-weight: 700;
     font-size: 13px;
@@ -149,12 +148,12 @@
     border-radius: 999px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 0 24px rgba(0, 255, 136, 0.25);
-    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 0 24px rgba(151, 21, 49, 0.25);
+    transition: transform v.$transition-fast, box-shadow v.$transition-fast;
 
     &:hover {
         transform: translateY(-1px);
-        box-shadow: 0 0 40px rgba(0, 255, 136, 0.4);
+        box-shadow: 0 0 40px rgba(151, 21, 49, 0.4);
     }
 }
 
@@ -168,7 +167,7 @@
     padding: 12px 24px;
     border-radius: 999px;
     cursor: pointer;
-    transition: background .2s, border-color .2s;
+    transition: background v.$transition-fast, border-color v.$transition-fast;
 
     &:hover {
         background: rgba(255, 255, 255, 0.08);
