@@ -1,0 +1,408 @@
+@use 'variables' as v;
+
+// ── Overlay ─────────────────────────────────────────────────
+#proj-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    display: none;
+    transition: opacity 0.35s ease;
+
+    &.active {
+        display: block;
+        opacity: 1;
+    }
+}
+
+// ── Modal ───────────────────────────────────────────────────
+#proj-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%) scale(0.97);
+    width: 90%;
+    max-width: 860px;
+    max-height: 88vh;
+    z-index: 1101;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 32px 100px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+
+    &.active {
+        display: flex;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+// ── Close button ────────────────────────────────────────────
+#proj-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background v.$transition-fast, color v.$transition-fast, border-color v.$transition-fast;
+
+    &:hover {
+        background: var(--primary-subtle);
+        border-color: var(--primary-border);
+        color: var(--primary-border);
+    }
+}
+
+// ── Scrollable body ─────────────────────────────────────────
+#proj-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    // Custom scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 999px;
+    }
+}
+
+// ── Screenshot ──────────────────────────────────────────────
+#proj-modal-screenshot {
+    width: 100%;
+    height: 340px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#proj-modal-placeholder {
+    svg {
+        width: 80px;
+        height: 80px;
+        color: var(--text-muted);
+        opacity: 0.3;
+    }
+}
+
+#proj-modal-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+
+    &.loaded {
+        display: block;
+    }
+}
+
+// ── Info row ────────────────────────────────────────────────
+#proj-modal-info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    padding: 36px 40px 28px;
+    align-items: start;
+}
+
+#proj-modal-left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#proj-modal-title {
+    font-family: v.$font-display;
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 40px);
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    color: var(--text-primary);
+}
+
+#proj-modal-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.75;
+    max-width: 420px;
+}
+
+#proj-modal-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: v.$primary-dark;
+    color: #fff;
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    width: fit-content;
+    box-shadow: 0 0 24px rgba(151, 21, 49, 0.3);
+    transition: transform v.$transition-fast, box-shadow v.$transition-fast;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 0 40px rgba(151, 21, 49, 0.45);
+    }
+}
+
+// ── Meta ────────────────────────────────────────────────────
+#proj-modal-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 200px;
+    padding-top: 4px;
+}
+
+.proj-modal-meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.proj-modal-meta-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.proj-modal-meta-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: v.$font-display;
+}
+
+// ── Divider ─────────────────────────────────────────────────
+.proj-modal-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 40px;
+}
+
+// ── Sections ────────────────────────────────────────────────
+#proj-modal-sections {
+    padding: 32px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.proj-modal-section {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.proj-modal-section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding-top: 4px;
+}
+
+.proj-modal-section-text {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.85;
+}
+
+// ── Prev / Next nav ─────────────────────────────────────────
+#proj-modal-nav {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+    background: var(--bg-card);
+}
+
+.proj-modal-nav-divider {
+    background: var(--border);
+    height: 100%;
+}
+
+#proj-modal-prev,
+#proj-modal-next {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px 28px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background v.$transition-fast;
+    text-align: left;
+
+    &:hover {
+        background: var(--surface);
+    }
+}
+
+#proj-modal-next {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.proj-modal-nav-arrow {
+    font-size: 18px;
+    color: v.$primary-dark;
+    line-height: 1;
+}
+
+.proj-modal-nav-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.proj-modal-nav-name {
+    font-family: v.$font-display;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+// ── Responsive ──────────────────────────────────────────────
+@media (max-width: 640px) {
+    #proj-modal {
+        width: 96%;
+        max-height: 92vh;
+        border-radius: 16px;
+    }
+
+    #proj-modal-info {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    #proj-modal-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        min-width: unset;
+    }
+
+    .proj-modal-section {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    #proj-modal-sections {
+        padding: 24px;
+    }
+
+    .proj-modal-divider {
+        margin: 0 24px;
+    }
+
+    #proj-modal-screenshot {
+        height: 220px;
+    }
+
+    .proj-modal-nav-name {
+        font-size: 14px;
+    }
+}
+
+#proj-modal-carousel {
+    padding: 24px 0 16px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+}
+
+#proj-modal-carousel-track {
+    display: flex;
+    gap: 16px;
+    padding: 0 40px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.proj-carousel-img {
+    flex-shrink: 0;
+    width: 340px;
+    height: 220px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    object-fit: cover;
+    scroll-snap-align: start;
+}
+
+#proj-modal-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding-top: 16px;
+}
+
+.proj-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--border);
+    transition: width 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+
+    &.active {
+        width: 24px;
+        background: v.$primary-dark;
+    }
+}

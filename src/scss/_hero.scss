@@ -95,10 +95,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background:
-        radial-gradient(ellipse 55% 70% at 82% 50%, rgba(151, 21, 49, 0.06) 0%, transparent 65%),
-        radial-gradient(ellipse 35% 50% at 15% 85%, rgba(80, 10, 25, 0.1) 0%, transparent 55%),
-        v.$black;
+    background: v.$black; // fallback only — dither canvas renders on top
 }
 
 .ph-content {

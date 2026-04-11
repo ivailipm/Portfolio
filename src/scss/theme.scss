@@ -46,10 +46,10 @@
     --border-subtle: rgba(0, 0, 0, 0.05);
 
     --text-primary: #111;
-    --text-secondary: #555;
-    --text-muted: #888;
-    --text-dim: rgba(0, 0, 0, 0.25);
-    --text-dim2: rgba(0, 0, 0, 0.3);
+    --text-secondary: #333;
+    --text-muted: #555;
+    --text-dim: rgba(0, 0, 0, 0.5);
+    --text-dim2: rgba(0, 0, 0, 0.55);
 
     --navbar-bg: rgba(240, 237, 232, 0.85);
     --float-card-bg: rgba(228, 224, 218, 0.92);
@@ -120,11 +120,8 @@ body {
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 .ph-hero {
-    background:
-        radial-gradient(ellipse 55% 70% at 82% 50%, var(--hero-glow-1) 0%, transparent 65%),
-        radial-gradient(ellipse 35% 50% at 15% 85%, var(--hero-glow-2) 0%, transparent 55%),
-        var(--bg) !important;
-    transition: background 0.35s ease;
+    // background handled by dither canvas — only fallback color needed
+    background: var(--bg) !important;
 }
 
 .ph-headline {
