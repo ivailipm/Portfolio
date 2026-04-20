@@ -111,3 +111,22 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 540px) {
+    .ph-nav-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .ph-nav-link {
+        font-size: 11.5px;
+        padding: 5px 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    .ph-nav-link {
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+}

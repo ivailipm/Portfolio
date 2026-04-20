@@ -208,6 +208,14 @@
     }
 }
 
+.proj-card-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .proj-card-overlay {
     position: absolute;
     inset: 0;
@@ -318,6 +326,21 @@
 }
 
 // ── Responsive ──────────────────────────────────────────────
+@media (max-width: 1024px) {
+
+    .proj-hero,
+    .proj-filter-wrap,
+    .proj-grid-section {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+
+    .proj-hero::after {
+        left: 48px;
+        right: 48px;
+    }
+}
+
 @media (max-width: 900px) {
 
     .proj-hero,
@@ -344,18 +367,88 @@
 @media (max-width: 600px) {
     .proj-hero {
         padding-top: 110px;
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    .proj-filter-wrap,
+    .proj-hero::after {
+        left: 20px;
+        right: 20px;
+    }
+
+    .proj-filter-wrap {
+        padding: 24px 20px;
+    }
+
     .proj-grid-section {
-        padding-left: 24px;
-        padding-right: 24px;
+        padding: 0 20px 60px;
     }
 
     .proj-headline {
-        font-size: clamp(40px, 12vw, 64px);
+        font-size: clamp(36px, 12vw, 60px);
         letter-spacing: -2px;
+    }
+
+    .proj-card-img {
+        height: 200px;
+    }
+
+    .proj-card--featured .proj-card-img {
+        height: 220px;
+    }
+
+    .proj-card-info {
+        padding: 20px 20px 24px;
+    }
+}
+
+@media (max-width: 420px) {
+    .proj-hero {
+        padding-top: 100px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .proj-hero::after {
+        left: 16px;
+        right: 16px;
+    }
+
+    .proj-filter-wrap {
+        padding: 20px 16px;
+    }
+
+    .proj-grid-section {
+        padding: 0 16px 48px;
+    }
+
+    .proj-grid {
+        gap: 16px;
+    }
+
+    .proj-headline {
+        font-size: clamp(30px, 11vw, 48px);
+        letter-spacing: -1.5px;
+    }
+
+    .proj-filter-btn {
+        font-size: 11px;
+        padding: 6px 14px;
+    }
+
+    .proj-card-img {
+        height: 180px;
+    }
+
+    .proj-card--featured .proj-card-img {
+        height: 200px;
+    }
+
+    .proj-card-info {
+        padding: 16px 16px 20px;
+    }
+
+    .proj-card-title {
+        font-size: 18px;
     }
 }

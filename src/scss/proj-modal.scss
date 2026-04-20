@@ -125,7 +125,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: none;
 
     &.loaded {
@@ -356,6 +356,39 @@
     }
 }
 
+@media (max-width: 420px) {
+    #proj-modal-screenshot {
+        height: 180px;
+    }
+
+    #proj-modal-info {
+        padding: 16px;
+        gap: 20px;
+    }
+
+    #proj-modal-sections {
+        padding: 16px;
+        gap: 20px;
+    }
+
+    .proj-modal-divider {
+        margin: 0 16px;
+    }
+
+    #proj-modal-prev,
+    #proj-modal-next {
+        padding: 14px 16px;
+    }
+
+    .proj-modal-nav-name {
+        font-size: 13px;
+    }
+
+    #proj-modal-carousel-track {
+        padding: 0 16px;
+    }
+}
+
 #proj-modal-carousel {
     padding: 24px 0 16px;
     border-bottom: 1px solid var(--border);
@@ -382,7 +415,7 @@
     border-radius: 12px;
     background: var(--surface);
     border: 1px solid var(--border);
-    object-fit: cover;
+    object-fit: contain;
     scroll-snap-align: start;
 }
 

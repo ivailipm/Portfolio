@@ -17,6 +17,76 @@ body {
     font-family: v.$font-body;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    cursor: none;
+}
+
+a, button {
+    cursor: none;
+}
+
+// ── Custom cursor ─────────────────────────────────────────────
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--primary, #971531);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    margin-left: -3px;
+    margin-top: -3px;
+    transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, background 0.2s ease;
+
+    &--hover {
+        width: 8px;
+        height: 8px;
+        margin-left: -4px;
+        margin-top: -4px;
+    }
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--primary, #971531);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    margin-left: -18px;
+    margin-top: -18px;
+    opacity: 0.6;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                margin 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.3s ease,
+                border-color 0.3s ease,
+                opacity 0.2s ease;
+
+    &--hover {
+        width: 52px;
+        height: 52px;
+        margin-left: -26px;
+        margin-top: -26px;
+        background: var(--primary, #971531);
+        opacity: 0.15;
+        border-color: transparent;
+    }
+}
+
+@media (pointer: coarse) {
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+
+    html, body, a, button {
+        cursor: auto;
+    }
 }
 
 a {

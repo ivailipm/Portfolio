@@ -1,4 +1,7 @@
 import './scss/main.scss'
+import { initDecryptedText } from './js/decrypted-text.js'
+import './js/cursor.js'
+document.addEventListener('DOMContentLoaded', initDecryptedText)
 import './js/sphere.js'
 import './js/my-story.js'
 import './js/theme.js'

@@ -26,7 +26,7 @@
                 <a href="/" class="ph-nav-link">Home</a>
                 <a href="/about.html" class="ph-nav-link">About</a>
                 <a href="/projects.html" class="ph-nav-link active">Projects</a>
-                <a href="#" class="ph-nav-link" id="contact-link">Contact</a>
+                <a href="/contact.html" class="ph-nav-link">Contact</a>
             </div>
             <div class="ph-nav-right">
                 <div class="ph-toggle"></div>
@@ -50,10 +50,10 @@
     <div class="proj-filter-wrap">
         <div class="proj-filters">
             <button class="proj-filter-btn active" data-filter="all">All</button>
-            <button class="proj-filter-btn" data-filter="ux-ui">UX/UI</button>
-            <button class="proj-filter-btn" data-filter="fullstack">Full Stack</button>
-            <button class="proj-filter-btn" data-filter="branding">Branding</button>
-            <button class="proj-filter-btn" data-filter="apps">Apps</button>
+            <button class="proj-filter-btn" data-filter="React-Native">React Native</button>
+            <button class="proj-filter-btn" data-filter="TALL Stack">TALL Stack</button>
+            <button class="proj-filter-btn" data-filter="branding">C# & ASP.Net</button>
+            <button class="proj-filter-btn" data-filter="apps">UI & UX</button>
         </div>
     </div>
 
@@ -62,7 +62,7 @@
         <div class="proj-grid">
 
             <!-- PROJECT 1 — Featured (full width) -->
-            <div class="proj-card proj-card--featured" data-category="fullstack ux-ui">
+            <div class="proj-card proj-card--featured" data-category="React-Native">
                 <div class="proj-card-img">
                     <div class="proj-card-placeholder">
                         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,16 +79,15 @@
                 </div>
                 <div class="proj-card-info">
                     <div class="proj-card-meta">
-                        <span class="proj-card-cat">Full Stack</span>
+                        <span class="proj-card-cat">React Native</span>
                         <span class="proj-card-year">2025</span>
                     </div>
-                    <h3 class="proj-card-title">Portfolio Platform</h3>
-                    <p class="proj-card-desc">A custom-built portfolio with dithered canvas backgrounds, dark/light
-                        theming, and smooth animations.</p>
+                    <h3 class="proj-card-title">Travel App</h3>
+                    <p class="proj-card-desc">A custom-built travel app.</p>
                     <div class="proj-card-tags">
+                        <span class="proj-tag-pill">Firebase</span>
                         <span class="proj-tag-pill">Node.js</span>
-                        <span class="proj-tag-pill">SCSS</span>
-                        <span class="proj-tag-pill">Vite</span>
+                        <span class="proj-tag-pill">Mapbox</span>
                     </div>
                 </div>
             </div>
@@ -123,29 +122,27 @@
             </div>
 
             <!-- PROJECT 3 -->
-            <div class="proj-card" data-category="apps fullstack">
+            <div class="proj-card proj-card--featured" data-category="TALL Stack">
                 <div class="proj-card-img">
-                    <div class="proj-card-placeholder">
-                        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="24" y="8" width="32" height="56" rx="5" stroke="currentColor" stroke-width="1.5" />
-                            <rect x="30" y="14" width="20" height="32" rx="2" fill="currentColor" opacity="0.08" />
-                            <circle cx="40" cy="55" r="3" fill="currentColor" opacity="0.4" />
-                        </svg>
-                    </div>
+                    <img src="/src/images/login-screen.png" alt="Gym Junkies" class="proj-card-photo" />
                     <div class="proj-card-overlay">
                         <a href="#" class="proj-card-cta">View Case Study →</a>
                     </div>
                 </div>
                 <div class="proj-card-info">
                     <div class="proj-card-meta">
-                        <span class="proj-card-cat">Apps</span>
-                        <span class="proj-card-year">2024</span>
+                        <span class="proj-card-cat">Full Stack Web Application</span>
+                        <span class="proj-card-year">2025</span>
                     </div>
-                    <h3 class="proj-card-title">Mobile Task Manager</h3>
+                    <h3 class="proj-card-title">Gym Junkies</h3>
                     <p class="proj-card-desc">A productivity app with gesture-based interactions and offline-first
                         architecture.</p>
                     <div class="proj-card-tags">
-                        <span class="proj-tag-pill">React Native</span>
+                        <span class="proj-tag-pill">Laravel</span>
+                        <span class="proj-tag-pill">Livewire</span>
+                        <span class="proj-tag-pill">Alpine.js</span>
+                        <span class="proj-tag-pill">TailwindCSS</span>
+                        <span class="proj-tag-pill">SQLite</span>
                         <span class="proj-tag-pill">Node.js</span>
                     </div>
                 </div>
@@ -255,7 +252,7 @@
                     <a href="/" class="footer-nav-link">Home</a>
                     <a href="/about.html" class="footer-nav-link">About</a>
                     <a href="/projects.html" class="footer-nav-link">Projects</a>
-                    <a href="#" class="footer-nav-link open-contact-popup">Contact</a>
+                    <a href="/contact.html" class="footer-nav-link">Contact</a>
                 </nav>
             </div>
             <div class="footer-divider"></div>
@@ -372,6 +369,10 @@
                 <div class="proj-modal-section">
                     <h3 class="proj-modal-section-label">OUR APPROACH</h3>
                     <p class="proj-modal-section-text" id="proj-modal-approach"></p>
+                </div>
+                <div class="proj-modal-section" id="proj-modal-features-section">
+                    <h3 class="proj-modal-section-label">KEY FEATURES</h3>
+                    <div id="proj-modal-features"></div>
                 </div>
 
             </div>
