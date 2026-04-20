@@ -1,4 +1,5 @@
 import './scss/main.scss'
+import './js/preloader.js'
 import { initDecryptedText } from './js/decrypted-text.js'
 import './js/cursor.js'
 document.addEventListener('DOMContentLoaded', initDecryptedText)
