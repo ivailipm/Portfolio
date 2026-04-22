@@ -78,6 +78,23 @@ body {
 }
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────
+.ph-theme-icon {
+    border-color: var(--border) !important;
+    background: var(--surface) !important;
+
+    &::before, &::after {
+        color: var(--text-primary) !important;
+    }
+}
+
+[data-theme="light"] .ph-theme-icon::before {
+    content: 'NIGHT' !important;
+}
+
+[data-theme="light"] .ph-theme-icon::after {
+    content: '☽' !important;
+}
+
 .ph-navbar {
     background: var(--navbar-bg) !important;
     border-color: var(--border) !important;
@@ -99,23 +116,6 @@ body {
     &.active {
         color: var(--text-primary) !important;
     }
-}
-
-// Toggle: right = dark, left = light
-.ph-toggle {
-    background: var(--primary-subtle) !important;
-    border-color: var(--primary-border) !important;
-    transition: background 0.3s ease, border-color 0.3s ease;
-
-    &::after {
-        background: var(--primary) !important;
-        box-shadow: 0 0 8px var(--primary-glow) !important;
-        transition: transform 0.25s ease, background 0.3s ease;
-    }
-}
-
-[data-theme="light"] .ph-toggle::after {
-    transform: translateX(0px) !important;
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────

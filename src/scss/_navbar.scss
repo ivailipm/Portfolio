@@ -23,6 +23,7 @@
         0 1px 0 rgba(255, 255, 255, 0.05) inset,
         0 8px 32px rgba(0, 0, 0, 0.5);
     position: relative;
+    cursor: pointer;
 }
 
 .ph-logo {
@@ -72,35 +73,33 @@
     }
 }
 
-.ph-nav-right {
+
+.ph-theme-icon {
+    margin-left: auto;
     display: flex;
     align-items: center;
     gap: 5px;
-    margin-left: auto;
-}
-
-.ph-toggle {
-    width: 34px;
-    height: 19px;
-    background: rgba(151, 21, 49, 0.15);
+    padding: 4px 10px;
     border-radius: 999px;
-    border: 1px solid rgba(151, 21, 49, 0.3);
-    position: relative;
-    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
     flex-shrink: 0;
+    pointer-events: none;
+    transition: background v.$transition-fast, border-color v.$transition-fast;
+
+    &::before {
+        content: 'DAY';
+        font-family: v.$font-body;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.8px;
+        color: v.$white;
+    }
 
     &::after {
-        content: '';
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: 13px;
-        height: 13px;
-        border-radius: 50%;
-        background: v.$primary-dark;
-        box-shadow: 0 0 8px rgba(151, 21, 49, 0.6);
-        transform: translateX(15px);
-        transition: transform v.$transition-fast;
+        content: '☀︎';
+        font-size: 11px;
+        color: v.$white;
     }
 }
 

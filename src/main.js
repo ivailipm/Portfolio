@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', initDecryptedText)
 import './js/sphere.js'
 import './js/my-story.js'
 import './js/theme.js'
+import './js/reveal.js'
 // import './js/dither.js'
 import './js/popup.js'
 import './js/projects.js'
