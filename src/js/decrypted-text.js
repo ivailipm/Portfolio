@@ -10,10 +10,9 @@ function scramble(text, revealed, chars) {
 
 function initDecrypt(el) {
     const original = el.textContent;
-    const speed   = parseInt(el.dataset.decryptSpeed) || 40;
-    const sequential = el.hasAttribute('data-decrypt-sequential');
-    const chars   = el.dataset.decryptChars || CHARS;
-    const maxIter = parseInt(el.dataset.decryptIterations) || 8;
+    const speed    = parseInt(el.dataset.decryptSpeed) || 65;
+    const chars    = el.dataset.decryptChars || CHARS;
+    const maxIter  = (parseInt(el.dataset.decryptIterations) || 8) + 10;
 
     let intervalId  = null;
     let isAnimating = false;
@@ -24,22 +23,26 @@ function initDecrypt(el) {
 
         const revealed = new Set();
         let iter = 0;
+        let resolving = false;
 
         intervalId = setInterval(() => {
-            if (sequential) {
-                const next = revealed.size;
+            if (!resolving) {
+                // Phase 1: scramble in place
+                el.textContent = scramble(original, new Set(), chars);
+                iter++;
+                if (iter >= maxIter) resolving = true;
+            } else {
+                // Phase 2: reveal left to right
+                let next = revealed.size;
+                // skip spaces automatically
+                while (next < original.length && original[next] === ' ') {
+                    revealed.add(next);
+                    next++;
+                }
                 if (next < original.length) {
                     revealed.add(next);
                     el.textContent = scramble(original, revealed, chars);
                 } else {
-                    clearInterval(intervalId);
-                    el.textContent = original;
-                    isAnimating = false;
-                }
-            } else {
-                el.textContent = scramble(original, new Set(), chars);
-                iter++;
-                if (iter >= maxIter) {
                     clearInterval(intervalId);
                     el.textContent = original;
                     isAnimating = false;

@@ -248,6 +248,26 @@
     }
 }
 
+@media (max-width: 480px) {
+    .ct-form-section {
+        padding: 100px 16px 48px;
+    }
+
+    .ct-connect-section {
+        padding: 48px 16px;
+    }
+
+    .ct-form-inner {
+        gap: 36px;
+    }
+
+    .ct-social-row {
+        grid-template-columns: 32px 1fr auto;
+        gap: 12px;
+        padding: 16px 0;
+    }
+}
+
 @media (max-width: 600px) {
     .ct-form-section {
         padding: 110px 20px 60px;

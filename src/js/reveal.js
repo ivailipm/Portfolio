@@ -26,30 +26,24 @@ function initReveal() {
     const els = [...document.querySelectorAll(SELECTORS)]
     if (!els.length) return
 
-    // Tag everything hidden first
+    // Add the transition class — inline style already set opacity:0/translateY
     els.forEach(el => el.classList.add('reveal-el'))
-
-    // Force the browser to paint opacity:0 before we start revealing
-    document.body.getBoundingClientRect()
 
     const aboveFold = []
     const belowFold = []
 
     els.forEach(el => {
-        const rect = el.getBoundingClientRect()
-        if (rect.top < window.innerHeight + 60) {
+        if (el.getBoundingClientRect().top < window.innerHeight + 60) {
             aboveFold.push(el)
         } else {
             belowFold.push(el)
         }
     })
 
-    // Stagger above-fold elements with manual timeouts
     aboveFold.forEach((el, i) => {
-        setTimeout(() => el.classList.add('reveal-visible'), 80 + i * 120)
+        setTimeout(() => el.classList.add('reveal-visible'), 100 + i * 160)
     })
 
-    // Scroll-triggered for below-fold
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -65,10 +59,8 @@ function initReveal() {
 const preloader = document.getElementById('preloader')
 
 if (!preloader || preloader.style.display === 'none') {
-    // No preloader — reveal on DOMContentLoaded with a tiny delay
     document.addEventListener('DOMContentLoaded', () => setTimeout(initReveal, 80))
 } else {
-    // Wait for preloader animation to fully finish
     const mo = new MutationObserver(() => {
         if (preloader.classList.contains('preloader--done')) {
             mo.disconnect()

@@ -101,3 +101,31 @@
     color: v.$grey;
     font-weight: 300;
 }
+
+@media (max-width: 900px) {
+    .tools-section {
+        margin: 0 16px 60px;
+        padding: 36px 28px;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    .tools-section {
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .tool-card {
+        padding: 14px;
+    }
+}

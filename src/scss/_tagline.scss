@@ -121,3 +121,28 @@
         background: rgba(255, 255, 255, 0.06);
     }
 }
+
+@media (max-width: 900px) {
+    .tagline-section {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 60px 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tagline-section {
+        padding: 48px 24px;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tagline-section {
+        padding: 40px 20px;
+    }
+
+    .tagline-cta {
+        flex-wrap: wrap;
+    }
+}

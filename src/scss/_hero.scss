@@ -304,3 +304,44 @@
         box-shadow: 0 0 20px rgba(151, 21, 49, 0.3);
     }
 }
+
+@media (max-width: 768px) {
+    .ph-content {
+        padding: 0 32px;
+        justify-content: center;
+    }
+
+    .ph-left {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ph-cv-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .ph-float-card {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    .ph-content {
+        padding: 0 20px;
+    }
+
+    .ph-cv-btn {
+        font-size: 12px;
+        padding: 9px 16px;
+    }
+
+    .ph-social-btn {
+        width: 36px;
+        height: 36px;
+    }
+}
