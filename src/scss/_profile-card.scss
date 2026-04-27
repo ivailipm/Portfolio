@@ -63,6 +63,35 @@
     font-weight: 300;
 }
 
+.card-cv {
+    padding: 12px 18px 0;
+}
+
+.btn-cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: rgba(151, 21, 49, 0.1);
+    border: 1px solid rgba(151, 21, 49, 0.22);
+    color: v.$primary-dark;
+    font-family: v.$font-display;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background v.$transition-fast, border-color v.$transition-fast, color v.$transition-fast;
+
+    &:hover {
+        background: rgba(151, 21, 49, 0.18);
+        border-color: rgba(151, 21, 49, 0.45);
+        color: v.$primary-light;
+    }
+}
+
 .card-socials {
     display: flex;
     gap: 8px;

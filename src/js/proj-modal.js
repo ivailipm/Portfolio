@@ -104,6 +104,7 @@ const PROJECTS = [
         fullDesc: 'Nordik Form is a premium digital experience designed for a fictional Scandinavian furniture brand. The project spans a full design system — colour palette, typography scale, and spacing tokens — alongside a complete desktop and mobile e-commerce experience. Every layout decision reflects the brand\'s core values: simplicity, materiality, and editorial restraint. The result is a cohesive visual identity that feels both aspirational and functional.',
         story: 'The brief was self-imposed: design a luxury furniture brand\'s digital presence from scratch, with no client constraints and full creative freedom. The challenge was to make "minimal" feel rich rather than empty — to use whitespace, scale, and typography as the primary design tools rather than decoration. The project became an exercise in restraint: how much can you strip away before something stops feeling premium?',
         approach: 'The design started with the system, not the screens. A warm neutral colour palette — Ivory White, Pure White, Warm Beige, and Slate Brown — was anchored by a near-black primary and a Dark Brown accent. The typographic pairing uses a bold geometric sans-serif for display headings and a refined serif for body copy, creating editorial tension that reinforces the brand\'s premium positioning. Desktop layouts lean on asymmetric grids and full-bleed imagery to create a sense of physical scale. The mobile experience adapts the same hierarchy into a single-column layout with simplified navigation and larger touch targets. Key screens cover the full purchase journey: editorial hero, featured products grid, category browse, promotional CTA banner, and a structured multi-column footer.',
+        contribution: "Collaborated equally across all project deliverables as part of a 6-person team. Contributed to the full design process — from mapping out the use case diagram and building the ERD, to crafting the Figma prototype — with every decision made and reviewed collectively as a group.",
         liveUrl: 'https://dribbble.com/shots/27318720-Nordik-Form-Furniture-E-commerce-UI-UX',
         image: '/src/images/NordikForm_mobile.png',
         images: [
@@ -119,6 +120,54 @@ const PROJECTS = [
             { title: 'Category Browse', desc: 'Full-bleed category tiles with overlaid labels for intuitive navigation across product families.' },
             { title: 'Promotional CTA Banner', desc: 'Mid-page editorial banner pairing a headline with a hero product shot, balancing brand storytelling and conversion intent.' },
             { title: 'Mobile Experience', desc: 'All screens designed at desktop and mobile breakpoints — simplified navigation, touch-optimised layouts, and consistent brand voice at every size.' },
+        ],
+    },
+    {
+        id: 'tall-stack-project',
+        title: 'The Andersons',
+        category: 'TALL Stack',
+        client: 'Academical Project',
+        date: 'February 2026',
+        stack: 'Laravel · Alpine.js · Livewire · TailwindCSS',
+        shortDesc: 'A family household management app built with the TALL stack to coordinate trips, tasks, meals, and finances.',
+        fullDesc: 'The Andersons is a household management web application designed to help families organise their daily lives. It brings together trip planning, task tracking, smart dinner planning with allergy awareness, and invoice management — all under one roof. ',
+        contribution: 'Trips Management developer in a 6-person team. Responsible for the full implementation of trip planning — including destinations, dates, and member participation — while collaborating closely with teammates on shared data models and the overall application architecture.',
+        story: 'Inspired by the everyday chaos of managing a busy household, the project aimed to create a single platform where a family could coordinate schedules, plan meals safely around dietary restrictions, delegate tasks, and keep track of shared expenses — without juggling multiple tools.',
+        approach: 'Built using the TALL stack (Tailwind CSS, Alpine.js, Laravel Livewire, and Laravel), the app leverages reactive UI components for a smooth, real-time experience. Each module was designed as a self-contained feature with shared member context, so availability, allergies, and assignments stay consistent across the whole application.',
+        liveUrl: '#',
+        image: '',
+        images: [],
+        features: [
+            { title: 'Trips Management', desc: 'Plan and track family trips with destinations, dates, and member participation. Ability to add and check Checkpoints and upload and download trip documents.' },
+            { title: 'Task Management', desc: 'Assign and monitor household tasks across family members with status tracking.' },
+            {
+                title: 'Dinner Planning', desc: "Schedule meals that automatically factor in each member's allergies and dietary needs."
+            },
+            {
+                title: ' Availability', desc: "Members can set availability and unavailability so planning always reflects who's home or currently has another task."
+            },
+            { title: 'Invoices', desc: ' Generate and manage household invoices to keep shared expenses clear and organized.' },
+            { title: 'Allergy Awareness', desc: 'Allergy profiles per member are respected across all dinner suggestions and meal plans.' },
+        ],
+    },
+    {
+        id: 'system-design-project',
+        title: 'Glow Gym',
+        category: 'System Design',
+        client: 'Academic Project',
+        date: 'September 2025',
+        stack: 'StarUML · Figma',
+        shortDesc: 'Software modelling & design project for a full gym management system, covering use cases, data modelling, and UI prototyping.',
+        fullDesc: 'A comprehensive software modelling project for a gym management system, built as part of the Software Modelling & Design course. The system covers member management, class scheduling, trainer assignment, and subscription tracking',
+        story: 'The goal was to model a real-world gym scenario from requirements to prototype. We started by identifying all actors and use cases, then structured the data layer through an ERD, and finally translated it into a clickable Figma prototype.',
+        approach: 'We followed a top-down design process — use case analysis to capture system behaviour, entity-relationship modelling to design the database schema, and Figma to wireframe the member-facing interface, ensuring every design decision traced back to a functional requirement.',
+        liveUrl: '#',
+        image: '',
+        images: [],
+        features: [
+            { title: 'Use Case Diagram', desc: 'Mapped all actors (member, trainer, admin) and their interactions with the system.' },
+            { title: 'ERD Design', desc: 'Designed a normalised entity-relationship diagram covering members, subscriptions, classes, and trainers.' },
+            { title: 'Figma Prototype', desc: 'Created an interactive UI prototype for member registration, class booking, and dashboard views.' },
         ],
     },
 ];
@@ -175,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('proj-modal-stack').textContent = proj.stack;
         document.getElementById('proj-modal-full-desc').textContent = proj.fullDesc;
         document.getElementById('proj-modal-story').textContent = proj.story;
+        document.getElementById('proj-modal-contribution').textContent = proj.contribution;
         document.getElementById('proj-modal-approach').textContent = proj.approach || '';
 
         // Features
