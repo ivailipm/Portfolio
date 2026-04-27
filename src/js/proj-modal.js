@@ -13,8 +13,13 @@ const PROJECTS = [
         story: "Most travel apps treat planning as a checklist — flights, hotels, dates. The goal here was to flip that and make travel feel like a story being written. Trips aren't just rows in a database; they're chapters in a personal archive. The world map isn't a decoration; it's the centerpiece — a living record of where someone has been and a quiet invitation to keep exploring. Every interaction was designed to feel less like data entry and more like flipping through a passport.",
         approach: 'The app was built mobile-first with a custom design system tuned for a warm, travel-themed aesthetic — deep navy paired with coral accents, semantic color tokens, and smooth spring animations throughout. Routing is handled by TanStack Router with a bottom navigation bar that uses an animated active indicator, giving the web app the feel of a native mobile experience. Trips are structured as collections of days, each holding activities, bookings, notes, and reminders.A drag- and - drop system powered by dnd - kit lets users reorder activities within a day with natural gestures.Folders group trips by theme or region, turning the app into a long - term travel archive rather than a one - off planner. The interactive world map, built with react - simple - maps, sits at the heart of the experience.Tapping a country marks it as visited and fills it with full color, while unvisited countries remain muted — making progress instantly visible.A circular progress ring tracks the count against all 195 countries, and all data persists locally via a custom useSyncExternalStore - based store, so trips and visited countries survive page reloads.',
         liveUrl: '#',
-        image: '',   // main screenshot e.g. '/src/images/proj-portfolio.jpg'
-        images: [],  // carousel images e.g. ['/src/images/p1.jpg', '/src/images/p2.jpg']
+        image: '/src/images/wanderbuddy-login-16x9.png',
+        images: [
+            '/src/images/TravelApp1.png',
+            '/src/images/TravelApp2.png',
+            '/src/images/TravelApp3.png',
+            '/src/images/TravelApp4.png',
+        ],
         features: [
             { title: 'Itinerary Builder', desc: 'Day-by-day trip planner with drag-and-drop activity reordering powered by dnd-kit.' },
             { title: 'Trip Folders', desc: 'Organize trips into folders grouped by theme, region, or year for long-term archiving.' },
@@ -107,6 +112,34 @@ const PROJECTS = [
         image: '',
         images: [],
     },
+    {
+        id: 'nordik-form',
+        title: 'Nordik Form',
+        category: 'UI/UX · E-Commerce Design',
+        client: 'Concept Project',
+        date: '2025',
+        stack: 'Figma',
+        shortDesc: 'A minimal, editorial e-commerce experience for a fictional Scandinavian furniture brand.',
+        fullDesc: 'Nordik Form is a premium digital experience designed for a fictional Scandinavian furniture brand. The project spans a full design system — colour palette, typography scale, and spacing tokens — alongside a complete desktop and mobile e-commerce experience. Every layout decision reflects the brand\'s core values: simplicity, materiality, and editorial restraint. The result is a cohesive visual identity that feels both aspirational and functional.',
+        story: 'The brief was self-imposed: design a luxury furniture brand\'s digital presence from scratch, with no client constraints and full creative freedom. The challenge was to make "minimal" feel rich rather than empty — to use whitespace, scale, and typography as the primary design tools rather than decoration. The project became an exercise in restraint: how much can you strip away before something stops feeling premium?',
+        approach: 'The design started with the system, not the screens. A warm neutral colour palette — Ivory White, Pure White, Warm Beige, and Slate Brown — was anchored by a near-black primary and a Dark Brown accent. The typographic pairing uses a bold geometric sans-serif for display headings and a refined serif for body copy, creating editorial tension that reinforces the brand\'s premium positioning. Desktop layouts lean on asymmetric grids and full-bleed imagery to create a sense of physical scale. The mobile experience adapts the same hierarchy into a single-column layout with simplified navigation and larger touch targets. Key screens cover the full purchase journey: editorial hero, featured products grid, category browse, promotional CTA banner, and a structured multi-column footer.',
+        liveUrl: 'https://dribbble.com/shots/27318720-Nordik-Form-Furniture-E-commerce-UI-UX',
+        image: '/src/images/NordikForm_mobile.png',
+        images: [
+            '/src/images/NordikForm1.png',
+            '/src/images/NordikForm2.png',
+            '/src/images/NordikForm3.png',
+            '/src/images/NordikForm4.png',
+        ],
+        features: [
+            { title: 'Design System', desc: 'Complete colour palette, typography scale, and spacing tokens built in Figma — ensuring consistency across every screen and breakpoint.' },
+            { title: 'Editorial Hero', desc: 'Bold, asymmetric hero with large display typography and a high-contrast product image, designed to make an immediate brand statement.' },
+            { title: 'Featured Products Grid', desc: 'Responsive product grid with hover states, pricing, and category labels — optimised for quick visual scanning.' },
+            { title: 'Category Browse', desc: 'Full-bleed category tiles with overlaid labels for intuitive navigation across product families.' },
+            { title: 'Promotional CTA Banner', desc: 'Mid-page editorial banner pairing a headline with a hero product shot, balancing brand storytelling and conversion intent.' },
+            { title: 'Mobile Experience', desc: 'All screens designed at desktop and mobile breakpoints — simplified navigation, touch-optimised layouts, and consistent brand voice at every size.' },
+        ],
+    },
 ];
 
 // ── Modal logic ─────────────────────────────────────────────
@@ -161,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('proj-modal-stack').textContent = proj.stack;
         document.getElementById('proj-modal-full-desc').textContent = proj.fullDesc;
         document.getElementById('proj-modal-story').textContent = proj.story;
+        document.getElementById('proj-modal-approach').textContent = proj.approach || '';
 
         // Features
         const featuresSection = document.getElementById('proj-modal-features-section');
@@ -264,9 +298,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', (e) => {
+        if (lightboxOverlay.classList.contains('active')) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') shiftLightbox(-1);
+            if (e.key === 'ArrowRight') shiftLightbox(1);
+            return;
+        }
         if (!modal.classList.contains('active')) return;
         if (e.key === 'Escape') closeModal();
         if (e.key === 'ArrowLeft' && currentIndex > 0) openModal(currentIndex - 1);
         if (e.key === 'ArrowRight' && currentIndex < PROJECTS.length - 1) openModal(currentIndex + 1);
+    });
+
+    // ── Lightbox ──────────────────────────────────────────────
+    const lightboxOverlay = document.getElementById('img-lightbox-overlay');
+    const lightbox = document.getElementById('img-lightbox');
+    const lightboxImg = document.getElementById('img-lightbox-img');
+    const lightboxClose = document.getElementById('img-lightbox-close');
+    const lightboxPrev = document.getElementById('img-lightbox-prev');
+    const lightboxNext = document.getElementById('img-lightbox-next');
+    const lightboxCounter = document.getElementById('img-lightbox-counter');
+
+    let lightboxImages = [];
+    let lightboxCurrent = 0;
+
+    function openLightbox(images, startIndex) {
+        lightboxImages = images;
+        lightboxCurrent = startIndex;
+        showLightboxImage(lightboxCurrent);
+        lightboxOverlay.classList.add('active');
+        lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+        lightboxImg.classList.remove('visible');
+        lightboxOverlay.classList.remove('active');
+        lightbox.classList.remove('active');
+    }
+
+    function showLightboxImage(index) {
+        lightboxImg.classList.remove('visible');
+        setTimeout(() => {
+            lightboxImg.src = lightboxImages[index];
+            lightboxImg.alt = `Image ${index + 1}`;
+            lightboxImg.classList.add('visible');
+        }, 80);
+        lightboxCounter.textContent = `${index + 1} / ${lightboxImages.length}`;
+        lightboxPrev.disabled = index === 0;
+        lightboxNext.disabled = index === lightboxImages.length - 1;
+    }
+
+    function shiftLightbox(dir) {
+        const next = lightboxCurrent + dir;
+        if (next < 0 || next >= lightboxImages.length) return;
+        lightboxCurrent = next;
+        showLightboxImage(lightboxCurrent);
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxOverlay.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => shiftLightbox(-1));
+    lightboxNext.addEventListener('click', () => shiftLightbox(1));
+
+    function getProjectImages(proj) {
+        return [proj.image, ...(proj.images || [])].filter(Boolean);
+    }
+
+    // Wire up main screenshot click
+    document.getElementById('proj-modal-screenshot').addEventListener('click', () => {
+        const proj = PROJECTS[currentIndex];
+        const imgs = getProjectImages(proj);
+        if (imgs.length === 0) return;
+        openLightbox(imgs, 0);
+    });
+
+    // Wire up carousel image clicks (delegated)
+    document.getElementById('proj-modal-carousel-track').addEventListener('click', (e) => {
+        const img = e.target.closest('.proj-carousel-img');
+        if (!img) return;
+        const proj = PROJECTS[currentIndex];
+        const imgs = getProjectImages(proj);
+        const trackImgs = [...document.querySelectorAll('.proj-carousel-img')];
+        const clickedIdx = trackImgs.indexOf(img);
+        // carousel images start after the main image in our array
+        const offset = proj.image ? 1 : 0;
+        openLightbox(imgs, offset + clickedIdx);
     });
 });
