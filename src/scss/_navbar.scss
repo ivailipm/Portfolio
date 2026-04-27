@@ -86,7 +86,7 @@
     transition: background v.$transition-fast, border-color v.$transition-fast;
 
     &::before {
-        content: 'DAY';
+        content: 'NIGHT';
         font-family: v.$font-body;
         font-size: 10px;
         font-weight: 500;
@@ -95,7 +95,7 @@
     }
 
     &::after {
-        content: '☀︎';
+        content: '☽';
         font-size: 11px;
         color: v.$white;
     }

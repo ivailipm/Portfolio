@@ -1,6 +1,6 @@
 // Apply saved theme immediately to avoid flash
 const saved = localStorage.getItem('theme')
-if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light')
+if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark')
 
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.ph-theme-icon')
@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.style.cursor = 'pointer'
 
     toggle.addEventListener('click', () => {
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light'
-        if (isLight) {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+        if (isDark) {
             document.documentElement.removeAttribute('data-theme')
-            localStorage.setItem('theme', 'dark')
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light')
             localStorage.setItem('theme', 'light')
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark')
+            localStorage.setItem('theme', 'dark')
         }
     })
 })

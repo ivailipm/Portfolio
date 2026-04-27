@@ -1,41 +1,10 @@
 // ─── CSS custom properties ────────────────────────────────────────────────────
-// Dark mode (default)
+// Light mode (default)
 :root {
-    --primary: #971531;
-    --primary-glow: rgba(151, 21, 49, 0.3);
-    --primary-subtle: rgba(151, 21, 49, 0.08);
-    --primary-border: rgba(151, 21, 49, 0.35);
-
-    --bg: #0a0a0a;
-    --bg-secondary: #0e0e0e;
-    --bg-card: #111;
-    --surface: rgba(255, 255, 255, 0.03);
-    --surface-hover: rgba(255, 255, 255, 0.06);
-    --border: rgba(255, 255, 255, 0.07);
-    --border-subtle: rgba(255, 255, 255, 0.05);
-
-    --text-primary: #efefef;
-    --text-secondary: #999;
-    --text-muted: #555;
-    --text-dim: rgba(255, 255, 255, 0.25);
-    --text-dim2: rgba(255, 255, 255, 0.28);
-
-    --navbar-bg: rgba(13, 13, 13, 0.80);
-    --float-card-bg: rgba(14, 14, 14, 0.85);
-    --float-card-border: rgba(255, 255, 255, 0.08);
-
-    --grain-opacity: 0.032;
-    --scanline-opacity: 1;
-    --hero-glow-1: rgba(151, 21, 49, 0.06);
-    --hero-glow-2: rgba(80, 10, 25, 0.1);
-}
-
-// Light mode
-[data-theme="light"] {
-    --primary: #c72336;
-    --primary-glow: rgba(199, 35, 54, 0.2);
-    --primary-subtle: rgba(199, 35, 54, 0.06);
-    --primary-border: rgba(199, 35, 54, 0.3);
+    --primary: #ad053a;
+    --primary-glow: rgba(95, 2, 31, 0.2);
+    --primary-subtle: rgba(95, 2, 31, 0.06);
+    --primary-border: rgba(95, 2, 31, 0.3);
 
     --bg: #f0ede8;
     --bg-secondary: #e8e4de;
@@ -57,8 +26,39 @@
 
     --grain-opacity: 0.018;
     --scanline-opacity: 0;
-    --hero-glow-1: rgba(199, 35, 54, 0.05);
-    --hero-glow-2: rgba(150, 20, 40, 0.05);
+    --hero-glow-1: rgba(95, 2, 31, 0.05);
+    --hero-glow-2: rgba(50, 1, 15, 0.05);
+}
+
+// Dark mode
+[data-theme="dark"] {
+    --primary: #ff0055;
+    --primary-glow: rgba(153, 0, 51, 0.3);
+    --primary-subtle: rgba(153, 0, 51, 0.08);
+    --primary-border: rgba(153, 0, 51, 0.35);
+
+    --bg: #0a0a0a;
+    --bg-secondary: #0e0e0e;
+    --bg-card: #111;
+    --surface: rgba(255, 255, 255, 0.03);
+    --surface-hover: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.07);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #efefef;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888;
+    --text-dim: rgba(255, 255, 255, 0.4);
+    --text-dim2: rgba(255, 255, 255, 0.45);
+
+    --navbar-bg: rgba(13, 13, 13, 0.80);
+    --float-card-bg: rgba(14, 14, 14, 0.85);
+    --float-card-border: rgba(255, 255, 255, 0.08);
+
+    --grain-opacity: 0.032;
+    --scanline-opacity: 1;
+    --hero-glow-1: rgba(153, 0, 51, 0.06);
+    --hero-glow-2: rgba(80, 0, 25, 0.1);
 }
 
 // ─── Global ───────────────────────────────────────────────────────────────────
@@ -82,17 +82,18 @@ body {
     border-color: var(--border) !important;
     background: var(--surface) !important;
 
-    &::before, &::after {
+    &::before,
+    &::after {
         color: var(--text-primary) !important;
     }
 }
 
-[data-theme="light"] .ph-theme-icon::before {
-    content: 'NIGHT' !important;
+[data-theme="dark"] .ph-theme-icon::before {
+    content: 'DAY' !important;
 }
 
-[data-theme="light"] .ph-theme-icon::after {
-    content: '☽' !important;
+[data-theme="dark"] .ph-theme-icon::after {
+    content: '☀︎' !important;
 }
 
 .ph-navbar {
@@ -167,7 +168,7 @@ body {
 }
 
 .ph-card-av {
-    background: linear-gradient(135deg, rgba(151, 21, 49, 0.3), rgba(80, 10, 25, 0.2)) !important;
+    background: linear-gradient(135deg, var(--primary-glow), transparent) !important;
     border-color: var(--primary-border) !important;
 }
 
@@ -256,6 +257,10 @@ body {
 
 .about-body {
     color: var(--text-muted);
+}
+
+[data-theme="dark"] .about-body {
+    color: #b8b8b8;
 }
 
 .about-quote {
