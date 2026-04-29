@@ -13,6 +13,8 @@ const PROJECTS = [
         story: "Most travel apps treat planning as a checklist — flights, hotels, dates. The goal here was to flip that and make travel feel like a story being written. Trips aren't just rows in a database; they're chapters in a personal archive. The world map isn't a decoration; it's the centerpiece — a living record of where someone has been and a quiet invitation to keep exploring. Every interaction was designed to feel less like data entry and more like flipping through a passport.",
         approach: 'The app was built mobile-first with a custom design system tuned for a warm, travel-themed aesthetic — deep navy paired with coral accents, semantic color tokens, and smooth spring animations throughout. Routing is handled by TanStack Router with a bottom navigation bar that uses an animated active indicator, giving the web app the feel of a native mobile experience. Trips are structured as collections of days, each holding activities, bookings, notes, and reminders.A drag- and - drop system powered by dnd - kit lets users reorder activities within a day with natural gestures.Folders group trips by theme or region, turning the app into a long - term travel archive rather than a one - off planner. The interactive world map, built with react - simple - maps, sits at the heart of the experience.Tapping a country marks it as visited and fills it with full color, while unvisited countries remain muted — making progress instantly visible.A circular progress ring tracks the count against all 195 countries, and all data persists locally via a custom useSyncExternalStore - based store, so trips and visited countries survive page reloads.',
         liveUrl: '#',
+        githubUrl: '',
+        caseStudyUrl: '',
         image: '/src/images/wanderbuddy-login-16x9.png',
         images: [
             '/src/images/TravelApp1.png',
@@ -42,7 +44,9 @@ const PROJECTS = [
         fullDesc: 'A full-stack fitness and nutrition management platform built on the TALL stack, designed to unify workout planning, meal tracking, and health monitoring into a single cohesive experience. The application supports both regular users and administrators, with role-based access, a full exercise library, and an achievement system to keep users engaged.',
         story: "The goal was to move beyond fragmented health apps — one for food, one for workouts, one for sleep — and build something that treats fitness as a whole. The platform centers around visibility: users don't just log data, they see their habits, trends, and progress laid out clearly.Every feature was designed to reduce friction, so logging a meal or starting a workout takes seconds, not minutes.",
         approach: 'Built component by component using Livewire for reactive, server-driven interactivity without writing a single line of custom JavaScript for state. SQLite keeps the stack lightweight and portable. TailwindCSS was used utility-first throughout, and Alpine.js handles lightweight UI toggling where needed. The result is a fast, maintainable application with a clean separation between user-facing features and administrator controls.',
-        liveUrl: '#',
+        liveUrl: 'https://gymjunkies.be',
+        githubUrl: 'https://github.com/ivailipm/GymJunkies',
+        caseStudyUrl: '',
         image: '/src/images/main-dashboard.png',
         images: [
             '/src/images/recipes-page.png',
@@ -79,6 +83,8 @@ const PROJECTS = [
         story: 'The starting point was a simple question: what would a boutique coffee brand look like if it took design as seriously as its beans? From there, the brand named itself around the arabica variety — refined slightly into Aravica — and everything followed from that single idea. Products were generated, packaging was conceived, and the UI grew around them rather than the other way around.',
         approach: 'The design uses a warm cream base paired with deep espresso tones, letting the product imagery do the heavy lifting. Typography is kept editorial — oversized display type contrasted with tight, precise body copy. The layout prioritises scannability: hero, product grid, featured section, and a product detail view that keeps pricing and actions prominent. The result is a store that feels curated rather than catalogued.',
         liveUrl: '#',
+        githubUrl: '',
+        caseStudyUrl: 'https://dribbble.com/shots/27320012-Aravica-Coffee-brand-website-case-study',
         image: '/src/images/Aravica_header.png',
         images: [
             '/src/images/Aravica2.png',
@@ -106,6 +112,8 @@ const PROJECTS = [
         approach: 'The design started with the system, not the screens. A warm neutral colour palette — Ivory White, Pure White, Warm Beige, and Slate Brown — was anchored by a near-black primary and a Dark Brown accent. The typographic pairing uses a bold geometric sans-serif for display headings and a refined serif for body copy, creating editorial tension that reinforces the brand\'s premium positioning. Desktop layouts lean on asymmetric grids and full-bleed imagery to create a sense of physical scale. The mobile experience adapts the same hierarchy into a single-column layout with simplified navigation and larger touch targets. Key screens cover the full purchase journey: editorial hero, featured products grid, category browse, promotional CTA banner, and a structured multi-column footer.',
         contribution: "Collaborated equally across all project deliverables as part of a 6-person team. Contributed to the full design process — from mapping out the use case diagram and building the ERD, to crafting the Figma prototype — with every decision made and reviewed collectively as a group.",
         liveUrl: 'https://dribbble.com/shots/27318720-Nordik-Form-Furniture-E-commerce-UI-UX',
+        githubUrl: '',
+        caseStudyUrl: 'https://dribbble.com/shots/27318720-Nordik-Form-Furniture-E-commerce-UI-UX',
         image: '/src/images/NordikForm_mobile.png',
         images: [
             '/src/images/NordikForm1.png',
@@ -134,9 +142,18 @@ const PROJECTS = [
         contribution: 'Trips Management developer in a 6-person team. Responsible for the full implementation of trip planning — including destinations, dates, and member participation — while collaborating closely with teammates on shared data models and the overall application architecture.',
         story: 'Inspired by the everyday chaos of managing a busy household, the project aimed to create a single platform where a family could coordinate schedules, plan meals safely around dietary restrictions, delegate tasks, and keep track of shared expenses — without juggling multiple tools.',
         approach: 'Built using the TALL stack (Tailwind CSS, Alpine.js, Laravel Livewire, and Laravel), the app leverages reactive UI components for a smooth, real-time experience. Each module was designed as a self-contained feature with shared member context, so availability, allergies, and assignments stay consistent across the whole application.',
-        liveUrl: '#',
-        image: '',
-        images: [],
+        liveUrl: 'theandersons-lsta.lexrenders.be/login',
+        githubUrl: '',
+        caseStudyUrl: '',
+        image: '/src/images/Andersons_header.png',
+        images: [
+            '/src/images/Andersons1.png',
+            '/src/images/Andersons2.png',
+            '/src/images/Andersons3.png',
+            '/src/images/Andersons4.png',
+            '/src/images/Andersons5.png',
+            '/src/images/Andersons6.png',
+        ],
         features: [
             { title: 'Trips Management', desc: 'Plan and track family trips with destinations, dates, and member participation. Ability to add and check Checkpoints and upload and download trip documents.' },
             { title: 'Task Management', desc: 'Assign and monitor household tasks across family members with status tracking.' },
@@ -152,7 +169,7 @@ const PROJECTS = [
     },
     {
         id: 'system-design-project',
-        title: 'Glow Gym',
+        title: 'Grow Gym',
         category: 'System Design',
         client: 'Academic Project',
         date: 'September 2025',
@@ -162,8 +179,17 @@ const PROJECTS = [
         story: 'The goal was to model a real-world gym scenario from requirements to prototype. We started by identifying all actors and use cases, then structured the data layer through an ERD, and finally translated it into a clickable Figma prototype.',
         approach: 'We followed a top-down design process — use case analysis to capture system behaviour, entity-relationship modelling to design the database schema, and Figma to wireframe the member-facing interface, ensuring every design decision traced back to a functional requirement.',
         liveUrl: '#',
-        image: '',
-        images: [],
+        githubUrl: '',
+        caseStudyUrl: '',
+        image: '/src/images/GrowGym_header.png',
+        images: [
+            '/src/images/GrowGym1.png',
+            '/src/images/GrowGym2.png',
+            '/src/images/GrowGym3.png',
+            '/src/images/GrowGym4.png',
+            '/src/images/GrowGym5.png',
+            '/src/images/ERD-growGym.png',
+        ],
         features: [
             { title: 'Use Case Diagram', desc: 'Mapped all actors (member, trainer, admin) and their interactions with the system.' },
             { title: 'ERD Design', desc: 'Designed a normalised entity-relationship diagram covering members, subscriptions, classes, and trainers.' },
@@ -189,8 +215,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (PROJECTS[i]) {
             card.dataset.projectId = PROJECTS[i].id;
             card.style.cursor = 'pointer';
+
+            const proj = PROJECTS[i];
+            const cta = card.querySelector('.proj-card-cta');
+            const hasCaseStudy = proj.caseStudyUrl && proj.caseStudyUrl !== '#';
+
+            if (cta) {
+                if (hasCaseStudy) {
+                    cta.href = proj.caseStudyUrl;
+                    cta.textContent = 'View Case Study →';
+                    cta.target = '_blank';
+                    cta.rel = 'noopener noreferrer';
+                } else {
+                    cta.removeAttribute('href');
+                    cta.textContent = 'View Project →';
+                }
+            }
+
             card.addEventListener('click', (e) => {
-                if (e.target.closest('.proj-card-cta')) return;
+                if (hasCaseStudy && e.target.closest('.proj-card-cta')) return;
                 openModal(i);
             });
         }
@@ -224,7 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('proj-modal-stack').textContent = proj.stack;
         document.getElementById('proj-modal-full-desc').textContent = proj.fullDesc;
         document.getElementById('proj-modal-story').textContent = proj.story;
-        document.getElementById('proj-modal-contribution').textContent = proj.contribution;
+        const contributionSection = document.getElementById('proj-modal-contribution-section');
+        document.getElementById('proj-modal-contribution').textContent = proj.contribution || '';
+        contributionSection.style.display = proj.contribution ? 'grid' : 'none';
         document.getElementById('proj-modal-approach').textContent = proj.approach || '';
 
         // Features
@@ -243,7 +288,14 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             featuresSection.style.display = 'none';
         }
-        document.getElementById('proj-modal-live').href = proj.liveUrl;
+        const liveBtn = document.getElementById('proj-modal-live');
+        const githubBtn = document.getElementById('proj-modal-github');
+        const hasLive = proj.liveUrl && proj.liveUrl !== '#';
+        const hasGithub = proj.githubUrl && proj.githubUrl !== '#';
+        liveBtn.href = hasLive ? proj.liveUrl : '#';
+        liveBtn.style.display = hasLive ? 'inline-flex' : 'none';
+        githubBtn.href = hasGithub ? proj.githubUrl : '#';
+        githubBtn.style.display = hasGithub ? 'inline-flex' : 'none';
 
         // Main screenshot
         const img = document.getElementById('proj-modal-img');

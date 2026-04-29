@@ -166,7 +166,36 @@
     max-width: 420px;
 }
 
+#proj-modal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
 #proj-modal-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: v.$primary-dark;
+    color: #fff;
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    width: fit-content;
+    box-shadow: 0 0 24px rgba(151, 21, 49, 0.3);
+    transition: transform v.$transition-fast, box-shadow v.$transition-fast;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 0 40px rgba(151, 21, 49, 0.45);
+    }
+}
+
+#proj-modal-github {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -263,6 +292,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     counter-reset: feature;
+    margin-top: 16px;
 }
 
 .proj-modal-feature-row {

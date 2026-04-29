@@ -306,20 +306,34 @@
 }
 
 @media (max-width: 768px) {
+    .ph-hero {
+        height: auto;
+        min-height: unset;
+        padding-bottom: 60px;
+    }
+
     .ph-content {
-        padding: 0 32px;
+        padding: 48px 32px 0;
         justify-content: center;
     }
 
     .ph-left {
         max-width: 100%;
-        align-items: center;
+        align-items: stretch;
         text-align: center;
+    }
+
+    .ph-headline {
+        width: 100%;
+        text-align: center;
+        padding-top: 100px;
+        font-size: clamp(38px, 10vw, 52px);
     }
 
     .ph-cv-row {
         flex-wrap: wrap;
         justify-content: center;
+        padding-bottom: 60px;
     }
 
     .ph-float-card {

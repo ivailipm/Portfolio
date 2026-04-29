@@ -116,8 +116,15 @@
 
 @media (max-width: 540px) {
     .ph-nav-wrap {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .ph-nav-links {
+        position: static;
+        transform: none;
+        flex: 1;
+        justify-content: center;
     }
 
     .ph-nav-link {
@@ -128,7 +135,7 @@
 
 @media (max-width: 380px) {
     .ph-nav-link {
-        font-size: 11px;
-        padding: 4px 6px;
+        font-size: 10.5px;
+        padding: 4px 5px;
     }
 }

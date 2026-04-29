@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="src/images/IP.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap"
@@ -53,7 +54,7 @@
         <div class="ct-form-inner">
 
             <div class="ct-form-left">
-                <h1 class="ct-headline">Let's make<br>it happen</h1>
+                <h1 class="ct-headline">Let's make it<br>happen</h1>
             </div>
 
             <div class="ct-form-right">
@@ -63,8 +64,7 @@
                     If you need more details, feel free to reach out!
                 </p>
 
-                <form class="ct-form" id="ct-form" action="https://formspree.io/f/ivailapernikova@gmail.com"
-                    method="POST">
+                <form class="ct-form" id="ct-form" action="https://formspree.io/f/xzdynwgk" method="POST">
                     <div class="ct-form-row">
                         <div class="ct-field">
                             <input type="text" name="name" placeholder="Your name*" required />
@@ -171,7 +171,7 @@
             <div class="footer-bottom">
                 <p class="footer-copy">© 2026 Ivayla Pernikova. All rights reserved.</p>
                 <div class="footer-socials">
-                    <a href="https://dribbble.com/ivailapernikova" target="_blank" rel="noopener noreferrer"
+                    <a href="https://dribbble.com/ivayla-pernikova" target="_blank" rel="noopener noreferrer"
                         class="footer-social-btn" aria-label="Dribbble">
                         <svg viewBox="0 0 24 24">
                             <path
@@ -199,6 +199,57 @@
 
     <script type="module" src="/src/main.js"></script>
     <script>
+        // ── FORM SUBMISSION ─────────────────────────────────────
+        const ctForm = document.getElementById('ct-form');
+        const submitBtn = ctForm.querySelector('.ct-submit');
+        const contactPopup = document.getElementById('contact-popup');
+        const contactOverlay = document.getElementById('contact-popup-overlay');
+
+        ctForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.textContent = 'SENDING…';
+            submitBtn.disabled = true;
+
+            try {
+                const res = await fetch(ctForm.action, {
+                    method: 'POST',
+                    body: new FormData(ctForm),
+                    headers: { Accept: 'application/json' },
+                });
+
+                if (res.ok) {
+                    document.getElementById('contact-popup-title').textContent = 'MESSAGE SENT';
+                    document.getElementById('contact-popup-subtitle').textContent = 'THANK YOU';
+                    document.getElementById('contact-popup-description').textContent = "I'll get back to you as soon as possible.";
+                    ctForm.reset();
+                } else {
+                    document.getElementById('contact-popup-title').textContent = 'SOMETHING WENT WRONG';
+                    document.getElementById('contact-popup-subtitle').textContent = 'TRY AGAIN';
+                    document.getElementById('contact-popup-description').textContent = 'The message could not be sent. Please try again or reach out via email.';
+                }
+            } catch {
+                document.getElementById('contact-popup-title').textContent = 'SOMETHING WENT WRONG';
+                document.getElementById('contact-popup-subtitle').textContent = 'TRY AGAIN';
+                document.getElementById('contact-popup-description').textContent = 'The message could not be sent. Please check your connection and try again.';
+            }
+
+            contactOverlay.classList.add('active');
+            contactPopup.classList.add('active');
+            submitBtn.textContent = 'SUBMIT →';
+            submitBtn.disabled = false;
+        });
+
+        function closeContactPopup() {
+            contactOverlay.classList.remove('active');
+            contactPopup.classList.remove('active');
+        }
+
+        document.getElementById('contact-popup-close').addEventListener('click', closeContactPopup);
+        document.getElementById('contact-popup-close-bottom').addEventListener('click', closeContactPopup);
+        contactOverlay.addEventListener('click', (e) => {
+            if (e.target === contactOverlay) closeContactPopup();
+        });
+
         // Social hover fade effect
         const list = document.getElementById('ct-social-list');
         const rows = list.querySelectorAll('.ct-social-row');
