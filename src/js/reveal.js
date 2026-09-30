@@ -9,6 +9,7 @@ const SELECTORS = [
     '.tagline-section > .tagline-left',
     '.tagline-section > .tagline-right',
     '.ms-section',
+    '.ts-section',
     '.tools-section > .tools-tag',
     '.tools-section > .tools-headline',
     '.tools-section > .tools-desc',

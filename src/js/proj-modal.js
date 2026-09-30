@@ -1,38 +1,6 @@
 // ── Project data ────────────────────────────────────────────
-// Add your projects here. The order matches the card order in projects.html.
+// Add your projects here. The order matches the card order in index.html.
 const PROJECTS = [
-    {
-        id: 'TravelApp',
-        title: 'WanderBuddy',
-        category: 'React Native',
-        client: 'Personal',
-        date: 'December 2025',
-        stack: 'React Native · TypeScript · Tailwind CSS · TanStack Router · Mapbox · Firebase · dnd-kit',
-        shortDesc: 'A custom-built travel app',
-        fullDesc: 'A mobile-first travel planning web app that lets users build day-by-day itineraries, organize trips into themed folders, and visualize their global footprint through an interactive world map. Built as a single-page experience with a custom design system, persistent local storage, and a polished, app-like feel that runs entirely in the browser.',
-        story: "Most travel apps treat planning as a checklist — flights, hotels, dates. The goal here was to flip that and make travel feel like a story being written. Trips aren't just rows in a database; they're chapters in a personal archive. The world map isn't a decoration; it's the centerpiece — a living record of where someone has been and a quiet invitation to keep exploring. Every interaction was designed to feel less like data entry and more like flipping through a passport.",
-        approach: 'The app was built mobile-first with a custom design system tuned for a warm, travel-themed aesthetic — deep navy paired with coral accents, semantic color tokens, and smooth spring animations throughout. Routing is handled by TanStack Router with a bottom navigation bar that uses an animated active indicator, giving the web app the feel of a native mobile experience. Trips are structured as collections of days, each holding activities, bookings, notes, and reminders.A drag- and - drop system powered by dnd - kit lets users reorder activities within a day with natural gestures.Folders group trips by theme or region, turning the app into a long - term travel archive rather than a one - off planner. The interactive world map, built with react - simple - maps, sits at the heart of the experience.Tapping a country marks it as visited and fills it with full color, while unvisited countries remain muted — making progress instantly visible.A circular progress ring tracks the count against all 195 countries, and all data persists locally via a custom useSyncExternalStore - based store, so trips and visited countries survive page reloads.',
-        liveUrl: '#',
-        githubUrl: '',
-        caseStudyUrl: '',
-        image: '/images/wanderbuddy-login-16x9.png',
-        images: [
-            '/images/TravelApp1.png',
-            '/images/TravelApp2.png',
-            '/images/TravelApp3.png',
-            '/images/TravelApp4.png',
-        ],
-        features: [
-            { title: 'Itinerary Builder', desc: 'Day-by-day trip planner with drag-and-drop activity reordering powered by dnd-kit.' },
-            { title: 'Trip Folders', desc: 'Organize trips into folders grouped by theme, region, or year for long-term archiving.' },
-            { title: 'Interactive World Map', desc: 'Tap any country to mark it as visited — filled with color, unvisited countries stay muted for instant visual contrast.' },
-            { title: 'Countries Progress Ring', desc: 'Circular progress ring tracking visited countries against all 195 total at a glance.' },
-            { title: 'Saved Places Library', desc: 'Bookmark and categorize restaurants, attractions, and hotels for quick access while planning.' },
-            { title: 'Mobile-First Navigation', desc: 'Custom bottom navigation bar with an animated active indicator that gives the web app a native mobile feel.' },
-            { title: 'Persistent Local Storage', desc: 'All trips and map data survive page reloads via a custom useSyncExternalStore + localStorage store — no backend required.' },
-            { title: 'Design System & Animations', desc: 'Cohesive visual language built with semantic color tokens, a warm travel-themed palette, and Framer Motion spring animations throughout.' },
-        ],
-    },
     {
         id: 'gym-junkies',
         title: 'Gym Junkies',

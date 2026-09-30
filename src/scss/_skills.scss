@@ -1,0 +1,71 @@
+@use 'variables' as v;
+
+// ─── Technical Skills (About section) ─────────────────────────────────────────
+// Card shell matches .ms-section; tag, headline and pills reuse
+// .ms-tag, .ms-headline and .skill-tag so both themes carry over.
+// Sits in .about-page-layout and spans both columns (profile card + story).
+.ts-section {
+    grid-column: 1 / -1;
+    padding: 40px 36px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--bg-card);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.ts-header {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.ts-row {
+    display: grid;
+    grid-template-columns: 44px 170px 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+
+    &:last-child {
+        border-bottom: 1px solid var(--border);
+    }
+
+    &:hover .ts-num {
+        color: var(--primary);
+    }
+}
+
+.ts-num {
+    font-family: v.$font-body;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    transition: color v.$transition-fast;
+}
+
+.ts-label {
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.2px;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .ts-section {
+        padding: 28px 20px;
+    }
+
+    // Number + label on one line, pills wrap underneath
+    .ts-row {
+        grid-template-columns: 32px 1fr;
+        row-gap: 12px;
+
+        .skills-wrap {
+            grid-column: 1 / -1;
+        }
+    }
+}

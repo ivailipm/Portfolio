@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let visibleCount = 0;
 
             cards.forEach(card => {
-                const categories = card.dataset.category || '';
+                const categories = (card.dataset.category || '').split(' ');
                 const matches = filter === 'all' || categories.includes(filter);
 
                 if (matches) {
@@ -48,13 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const openContactPopup = (e) => {
         e.preventDefault();
-        contactOverlay.classList.add('active');
-        contactPopup.classList.add('active');
+        contactOverlay?.classList.add('active');
+        contactPopup?.classList.add('active');
     };
 
     const closeContactPopup = () => {
-        contactOverlay.classList.remove('active');
-        contactPopup.classList.remove('active');
+        contactOverlay?.classList.remove('active');
+        contactPopup?.classList.remove('active');
     };
 
     if (contactLink) contactLink.addEventListener('click', openContactPopup);
