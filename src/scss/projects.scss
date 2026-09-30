@@ -4,16 +4,6 @@
 .proj-hero {
     padding: 140px 80px 60px;
     position: relative;
-
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 80px;
-        right: 80px;
-        height: 1px;
-        background: var(--border);
-    }
 }
 
 .proj-hero-inner {
@@ -335,10 +325,6 @@
         padding-right: 48px;
     }
 
-    .proj-hero::after {
-        left: 48px;
-        right: 48px;
-    }
 }
 
 @media (max-width: 900px) {
@@ -350,10 +336,6 @@
         padding-right: 32px;
     }
 
-    .proj-hero::after {
-        left: 32px;
-        right: 32px;
-    }
 
     .proj-grid {
         grid-template-columns: 1fr;
@@ -371,10 +353,6 @@
         padding-right: 20px;
     }
 
-    .proj-hero::after {
-        left: 20px;
-        right: 20px;
-    }
 
     .proj-filter-wrap {
         padding: 24px 20px;
@@ -409,10 +387,6 @@
         padding-right: 16px;
     }
 
-    .proj-hero::after {
-        left: 16px;
-        right: 16px;
-    }
 
     .proj-filter-wrap {
         padding: 20px 16px;

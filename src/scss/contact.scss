@@ -136,8 +136,8 @@
 
 // ── Connect Section ──────────────────────────────────────────
 .ct-connect-section {
-    background: v.$primary-dark;
-    padding: 100px 80px;
+    background: var(--bg);
+    padding: 60px 80px 100px; // divider above provides the top spacing
     position: relative;
     overflow: hidden;
 }
@@ -162,7 +162,7 @@
     font-size: clamp(52px, 7vw, 96px);
     line-height: 1;
     letter-spacing: -3px;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .ct-social-list {
@@ -176,12 +176,12 @@
     align-items: center;
     gap: 16px;
     padding: 24px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid var(--border);
     text-decoration: none;
     transition: opacity 0.35s ease;
 
     &:last-child {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid var(--border);
     }
 
     &.ct-dimmed {
@@ -193,7 +193,7 @@
     font-family: v.$font-body;
     font-size: 11px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--text-dim);
     letter-spacing: 0.05em;
 }
 
@@ -201,19 +201,19 @@
     font-family: v.$font-display;
     font-weight: 700;
     font-size: clamp(18px, 2.2vw, 26px);
-    color: #fff;
+    color: var(--text-primary);
     letter-spacing: -0.5px;
 }
 
 .ct-social-arrow {
     font-size: 20px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-dim);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
 .ct-social-row:not(.ct-dimmed):hover .ct-social-arrow {
     transform: translate(3px, -3px);
-    color: #fff;
+    color: var(--primary);
 }
 
 // ── Responsive ───────────────────────────────────────────────

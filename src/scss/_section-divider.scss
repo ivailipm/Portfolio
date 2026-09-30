@@ -1,0 +1,108 @@
+@use 'variables' as v;
+
+// ─── Section divider ──────────────────────────────────────────────────────────
+// Chapter-style break at the top of each page section:  01 ───────── About
+// Number and label slide up out of a mask while the line draws left → right.
+// Animation is triggered by section-transitions.js adding .is-visible.
+$ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: calc(1200px + 160px);
+    margin: 0 auto;
+    padding: 120px 80px 0;
+    box-sizing: border-box;
+}
+
+// Masks: text starts below the box and slides up into view
+.sd-num,
+.sd-label {
+    overflow: hidden;
+    flex-shrink: 0;
+
+    span {
+        display: block;
+        transform: translateY(110%);
+        transition: transform 0.9s $ease;
+    }
+}
+
+.sd-num {
+    font-family: v.$font-body;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+}
+
+.sd-label {
+    font-family: v.$font-display;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+
+    span {
+        transition-delay: 0.35s;
+    }
+}
+
+.sd-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 1.4s $ease 0.1s;
+}
+
+.section-divider.is-visible {
+    .sd-num span,
+    .sd-label span {
+        transform: translateY(0);
+    }
+
+    .sd-line {
+        transform: scaleX(1);
+    }
+}
+
+// The divider now provides the top spacing the Projects header used to need
+#projects .proj-hero {
+    padding-top: 40px;
+}
+
+@media (max-width: 1024px) {
+    .section-divider {
+        padding: 100px 48px 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .section-divider {
+        padding: 90px 32px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-divider {
+        padding: 72px 20px 0;
+        gap: 16px;
+    }
+
+    #projects .proj-hero {
+        padding-top: 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sd-num span,
+    .sd-label span,
+    .sd-line {
+        transform: none;
+        transition: none;
+    }
+}
